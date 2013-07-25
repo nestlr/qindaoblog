@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <rss version="2.0"
+        xmlns:content="http://purl.org/rss/1.0/modules/content/"
+        xmlns:atom="http://www.w3.org/2005/Atom"
+  >
+  <channel>
+    <title>webfrogs</title>
+    <link href="http://localhost:4000/feed/" rel="self" />
+    <link href="http://webfrogs.github.com" />
+    <lastBuildDate>2013-07-25T10:19:50+08:00</lastBuildDate>
+    <webMaster>ccf.developer@gmail.com</webMaster>
+    
+    <item>
+      <title>OS X 下安装配置 Jekyll</title>
+      <link href="http://localhost:4000/2013/07/25/osx-jekyll/"/>
+      <pubDate>2013-07-25T08:17:59+08:00</pubDate>
+      <author>webfrogs</author>
+      <guid>http://localhost:4000/2013/07/25/osx-jekyll</guid>
+      <content:encoded><![CDATA[<h3>下载安装 Xcode</h3>
+
+<ul>
+<li>在 Mac App Store 中搜索安装 <a href="https://developer.apple.com/xcode/%E2%80%8E">Xcode</a>。</li>
+<li>安装完毕后，进入 Xcode，在 <code>Preferences</code> 里的 <code>Downloads</code> 中安装 <strong>Command Line Tools</strong>.</li>
+</ul>
+
+
+<h3>Ruby</h3>
+
+<p>OS X 自带 Ruby。在终端里输入</p>
+
+<pre><code>ruby -v
+</code></pre>
+
+<p>即可查看所安装的 Ruby 版本。</p>
+
+<h3>RubyGems</h3>
+
+<p>访问 <a href="http://rubygems.org/pages/download">http://rubygems.org/pages/download</a> 下载 RubyGems 文件。将文件解压到本地，在终端执行：</p>
+
+<pre><code>sudo ruby setup.rb
+</code></pre>
+
+<h3>Jekyll</h3>
+
+<p>终端执行</p>
+
+<pre><code>gem install jekyll
+gem install rdiscount
+</code></pre>
+
+<p>执行时间可能较长。</p>
+
+<p>若提示</p>
+
+<blockquote><p>ERROR: Failed to build gem native extension</p></blockquote>
+
+<p>多半是因为没装 Xcode Command Line Tools 引起。</p>
+
+<p>安装完毕后，在指定目录下执行</p>
+
+<pre><code>jekyll new my-awesome-site
+cd my-awesome-site
+jekyll serve --watch
+</code></pre>
+
+<p>则可在浏览器中以 <code>localhost:4000</code> 访问。<code>--watch</code> 选项开启页面 regeneration，也就是修改页面后刷新浏览器立即可以看到更新。</p>
+
+<h3>Pygment (语法高亮)</h3>
+
+<pre><code>sudo easy_install Pygment
+</code></pre>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>
