@@ -1,5 +1,5 @@
 markdown: rdiscount
-permalink: /:title/
+permalink: /:categories/:title/
 url: http://dannyli.github.io/
 author: Danny Li
 pygments: true
