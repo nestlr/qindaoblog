@@ -7,8 +7,85 @@
     <title>Danny Li</title>
     <link href="http://dannyli.github.io//feed/" rel="self" />
     <link href="http://webfrogs.github.com" />
-    <lastBuildDate>2013-07-25T11:57:34+08:00</lastBuildDate>
+    <lastBuildDate>2013-07-25T15:45:38+08:00</lastBuildDate>
     <webMaster>ccf.developer@gmail.com</webMaster>
+    
+    <item>
+      <title>使用 GitHub Pages 建立博客</title>
+      <link href="http://dannyli.github.io//notes/blogging-with-github-pages/"/>
+      <pubDate>2013-07-25T14:17:59+08:00</pubDate>
+      <author>Danny Li</author>
+      <guid>http://dannyli.github.io//notes/blogging-with-github-pages</guid>
+      <content:encoded><![CDATA[<h2>GitHub Pages</h2>
+
+<hr />
+
+<p>可以利用 <a href="http://pages.github.com/" title="GitHub Pages">GitHub Pages</a> 创建个人博客。对于小白，首先要知道什么是 Git 和 GitHub。当然，不知道也无所谓。但是利用 GitHub Pages 写博客（大多数程序员用其当笔记本），必须满足以下条件：</p>
+
+<ul>
+<li>喜欢折腾；</li>
+<li>喜欢简洁和格式化；</li>
+<li>学会使用 <a href="http://daringfireball.net/projects/markdown/" title="Markdown">Markdown</a> 或其他一种标记语言</li>
+</ul>
+
+
+<p>这里并不想详细写出建立 GitHub Pages 的每一步，因为关于它的建立、设置、使用网上的资料已经很详细。</p>
+
+<h2>创建 GitHub 账户</h2>
+
+<hr />
+
+<p>当然你要有一个 <a href="https://github.com/">GitHub</a> 账户。注册成功后参照下面的页面下载或配置本地 Git 环境。</p>
+
+<ul>
+<li><a href="https://help.github.com/articles/set-up-git">https://help.github.com/articles/set-up-git</a></li>
+</ul>
+
+
+<p>Windows 用户建议使用 GitHub 的 native app。非常直观好用，不用（相对）繁琐的命令行操作。</p>
+
+<h2>创建 GitHub Page</h2>
+
+<hr />
+
+<p>每一个 GitHub 分配了一个形如 username.github.io 的个人网址。比如我的是 dannyli.github.io。但是这个网址默认是没有启用的。按照下面页面指示的方法利用官网的 Automatic Page Generator 创建 GitHub Page。</p>
+
+<ul>
+<li><a href="https://help.github.com/articles/creating-pages-with-the-automatic-generator">https://help.github.com/articles/creating-pages-with-the-automatic-generator</a></li>
+</ul>
+
+
+<h2>使用本地 GitHub app</h2>
+
+<hr />
+
+<p>使用 GitHub app。将建立的空 repo "username.github.io" clone 到本地。如果是 OS X/Linux 环境，可以按照 Jekyll 官网给的方法很轻松的创建本地 Jekyll 环境，在本地编译调试产生一个默认的网站。Windows 下似乎也有方法创建本地环境，但是似乎比较繁琐。</p>
+
+<p>一个好办法是在 GitHub 搜索并 fork 别人的模板，例如 GitHub 创始人给出的一些网站：</p>
+
+<ul>
+<li><a href="https://github.com/mojombo/jekyll/wiki/sites">https://github.com/mojombo/jekyll/wiki/sites
+</a></li>
+</ul>
+
+
+<p>把 fork 的 repo 下载下来，复制粘贴到之前 clone 到本地的文件夹内，然后进行相应的修改。这种“剽窃”在开源社区是合理的，但是注意保留作者的信息（如果作者有申明）。</p>
+
+<h2>利用 Markdown 写博客</h2>
+
+<hr />
+
+<p>Markdown 其实不是一种新语言，只是 HTML 的一种转换器。语法可参照官方的 <a href="http://daringfireball.net/projects/markdown/syntax">Syntax</a>。编辑器这里推荐：</p>
+
+<ul>
+<li><a href="http://mouapp.com/">Mou</a> (OS X)</li>
+<li><a href="http://markdownpad.com/">MarkdownPad</a> (Windows)</li>
+</ul>
+
+
+<p>编辑好的文件保存为 .md 格式文件，按照要求个文件名格式保存在 _post 目录下。</p>
+]]></content:encoded>
+    </item>
     
     <item>
       <title>OS X 下安装配置 Jekyll</title>

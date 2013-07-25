@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="Danny Li" />
-    <title>OS X 下安装配置 Jekyll | Danny Li</title>
+    <title>使用 GitHub Pages 建立博客 | Danny Li</title>
     <link rel="shortcut icon" href="/favicon.ico">
     <link href="/feed/" rel="alternate" title="Danny Li" type="application/atom+xml" />
     <link rel="stylesheet" href="/media/css/style.css">
@@ -40,7 +40,7 @@
     <div id="container">
       <div id="main" role="main">
         <header>
-        <h1>OS X 下安装配置 Jekyll</h1>
+        <h1>使用 GitHub Pages 建立博客</h1>
         </header>
         <nav>
         <span><a title="home page" class="" href="/">Home</a></span>
@@ -50,85 +50,74 @@
         </nav>
         <article class="content">
         <section class="post">
-<h2>Xcode</h2>
+<h2>GitHub Pages</h2>
 
 <hr />
 
+<p>可以利用 <a href="http://pages.github.com/" title="GitHub Pages">GitHub Pages</a> 创建个人博客。对于小白，首先要知道什么是 Git 和 GitHub。当然，不知道也无所谓。但是利用 GitHub Pages 写博客（大多数程序员用其当笔记本），必须满足以下条件：</p>
+
 <ul>
-<li>在 Mac App Store 中搜索安装 <a href="https://developer.apple.com/xcode/%E2%80%8E">Xcode</a>。</li>
-<li>安装完毕后，进入 Xcode，在 <code>Preferences</code> 里的 <code>Downloads</code> 中安装 <strong>Command Line Tools</strong>.</li>
+<li>喜欢折腾；</li>
+<li>喜欢简洁和格式化；</li>
+<li>学会使用 <a href="http://daringfireball.net/projects/markdown/" title="Markdown">Markdown</a> 或其他一种标记语言</li>
 </ul>
 
 
-<h2>Ruby</h2>
+<p>这里并不想详细写出建立 GitHub Pages 的每一步，因为关于它的建立、设置、使用网上的资料已经很详细。</p>
+
+<h2>创建 GitHub 账户</h2>
 
 <hr />
 
-<p>OS X 自带 Ruby。在终端里输入</p>
-
-<pre><code>ruby -v
-</code></pre>
-
-<p>即可查看所安装的 Ruby 版本。</p>
-
-<h2>RubyGems</h2>
-
-<hr />
-
-<p>访问 <a href="http://rubygems.org/pages/download">http://rubygems.org/pages/download</a> 下载 RubyGems 文件。将文件解压到本地，在终端执行：</p>
-
-<pre><code>sudo ruby setup.rb
-</code></pre>
-
-<h2>Jekyll</h2>
-
-<hr />
-
-<p>终端执行</p>
-
-<pre><code>gem install jekyll
-gem install rdiscount
-</code></pre>
-
-<p>执行时间可能较长。</p>
-
-<p>若提示</p>
-
-<blockquote><p>ERROR: Failed to build gem native extension</p></blockquote>
-
-<p>多半是因为没装 Xcode Command Line Tools 引起。</p>
-
-<p>安装完毕后，在指定目录下执行</p>
-
-<pre><code>jekyll new my-awesome-site
-cd my-awesome-site
-jekyll serve --watch
-</code></pre>
-
-<p>则可在浏览器中以 <code>localhost:4000</code> 访问。<code>--watch</code> 选项开启页面 regeneration，也就是修改页面后刷新浏览器立即可以看到更新。</p>
-
-<h2>Pygments (语法高亮)</h2>
-
-<hr />
-
-<pre><code>sudo easy_install Pygment
-</code></pre>
-
-<p>Pygments 语法可参照 <a href="http://pygments.org/docs/lexers/">http://pygments.org/docs/lexers/</a></p>
-
-<h2>资源</h2>
-
-<hr />
-
-<p>下面列出学习 Jekyll/Git/Markdown 的一些好资源：</p>
+<p>当然你要有一个 <a href="https://github.com/">GitHub</a> 账户。注册成功后参照下面的页面下载或配置本地 Git 环境。</p>
 
 <ul>
-<li>Jekyll: <a href="http://jekyllrb.com/docs/home/">http://jekyllrb.com/docs/home/</a></li>
-<li>Markdown: <a href="http://daringfireball.net/projects/markdown/">http://daringfireball.net/projects/markdown/</a></li>
-<li>Github: <a href="https://help.github.com/">https://help.github.com/</a></li>
-<li>GotGithub: <a href="http://www.worldhello.net/gotgithub/">http://www.worldhello.net/gotgithub/</a></li>
+<li><a href="https://help.github.com/articles/set-up-git">https://help.github.com/articles/set-up-git</a></li>
 </ul>
 
+
+<p>Windows 用户建议使用 GitHub 的 native app。非常直观好用，不用（相对）繁琐的命令行操作。</p>
+
+<h2>创建 GitHub Page</h2>
+
+<hr />
+
+<p>每一个 GitHub 分配了一个形如 username.github.io 的个人网址。比如我的是 dannyli.github.io。但是这个网址默认是没有启用的。按照下面页面指示的方法利用官网的 Automatic Page Generator 创建 GitHub Page。</p>
+
+<ul>
+<li><a href="https://help.github.com/articles/creating-pages-with-the-automatic-generator">https://help.github.com/articles/creating-pages-with-the-automatic-generator</a></li>
+</ul>
+
+
+<h2>使用本地 GitHub app</h2>
+
+<hr />
+
+<p>使用 GitHub app。将建立的空 repo "username.github.io" clone 到本地。如果是 OS X/Linux 环境，可以按照 Jekyll 官网给的方法很轻松的创建本地 Jekyll 环境，在本地编译调试产生一个默认的网站。Windows 下似乎也有方法创建本地环境，但是似乎比较繁琐。</p>
+
+<p>一个好办法是在 GitHub 搜索并 fork 别人的模板，例如 GitHub 创始人给出的一些网站：</p>
+
+<ul>
+<li><a href="https://github.com/mojombo/jekyll/wiki/sites">https://github.com/mojombo/jekyll/wiki/sites
+</a></li>
+</ul>
+
+
+<p>把 fork 的 repo 下载下来，复制粘贴到之前 clone 到本地的文件夹内，然后进行相应的修改。这种“剽窃”在开源社区是合理的，但是注意保留作者的信息（如果作者有申明）。</p>
+
+<h2>利用 Markdown 写博客</h2>
+
+<hr />
+
+<p>Markdown 其实不是一种新语言，只是 HTML 的一种转换器。语法可参照官方的 <a href="http://daringfireball.net/projects/markdown/syntax">Syntax</a>。编辑器这里推荐：</p>
+
+<ul>
+<li><a href="http://mouapp.com/">Mou</a> (OS X)</li>
+<li><a href="http://markdownpad.com/">MarkdownPad</a> (Windows)</li>
+</ul>
+
+
+<p>编辑好的文件保存为 .md 格式文件，按照要求个文件名格式保存在 _post 目录下。</p>
 
 </section>
 <section class="meta">
@@ -136,9 +125,9 @@ jekyll serve --watch
 <br/>
 <br/>
 <span>
-	<a   class="pageNavInvalid"  >Previous</a>
+	<a  href="http://dannyli.github.io//notes/osx-jekyll/" class="pageNav"  >Previous</a>
 	&nbsp;&nbsp;&nbsp;
-	<a  href="http://dannyli.github.io//notes/blogging-with-github-pages/" class="pageNav"  >Next</a>
+	<a   class="pageNavInvalid"  >Next</a>
 </span>
 <hr>
 <span class="author">
@@ -179,11 +168,11 @@ $(function(){
     var url = false;
         if (e.which == 37 || e.which == 74) {  // Left arrow and J
             
+        url = 'http://dannyli.github.io//notes/osx-jekyll/';
+        
         }
         else if (e.which == 39 || e.which == 75) {  // Right arrow and K
             
-        url = 'http://dannyli.github.io//notes/blogging-with-github-pages/';
-        
         }
         if (url) {
             window.location = url;
