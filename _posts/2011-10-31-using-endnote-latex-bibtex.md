@@ -12,7 +12,7 @@ tags:
 
 [EndNote](http://www.endnote.com/) 是整理论文参考文献 (citation) 的绝佳工具。如果能把 EndNote 与 LaTeX 结合使用是再好不过了。这里介绍一种将 EndNote 内的书目导出为 LaTeX 可用的 BibTeX 格式的方法。 
 
-这里使用的软件版本为 EndNote X4。NTU 的学生可以在[这里](http://www3.ntu.edu.sg/lib/ISD/EndNote/License.htm)下载免费使用。假设 EndNote 里已经添加了所需的参考文献信息。很多数据库都自带导入 citation 到 EndNote 的功能，这里就不详细介绍。
+这里使用的软件版本为 EndNote ~~X4~~ X6。NTU 的学生可以在[这里](http://www3.ntu.edu.sg/lib/ISD/EndNote/License.htm)下载免费使用。假设 EndNote 里已经添加了所需的参考文献信息。很多数据库都自带导入 citation 到 EndNote 的功能，这里就不详细介绍。
 
 ## EndNote 的配置
 ---
