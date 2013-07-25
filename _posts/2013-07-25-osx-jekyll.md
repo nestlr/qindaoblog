@@ -12,12 +12,16 @@ tags:
 
 ## Xcode
 
+---
+
 在 Mac App Store 中搜索安装 [Xcode](https://developer.apple.com/xcode/‎)。
 
 安装完毕后，进入 Xcode，在 `Preferences` 里的 `Downloads` 中安装 **Command Line Tools**.
 
 
 ## Ruby
+
+---
 
 OS X 自带 Ruby。在终端里输入
 
@@ -28,12 +32,16 @@ OS X 自带 Ruby。在终端里输入
 
 ## RubyGems
 
+---
+
 访问 <http://rubygems.org/pages/download> 下载 RubyGems 文件。将文件解压到本地，在终端执行：
 
 	sudo ruby setup.rb
 
 
 ## Jekyll
+
+---
 
 终端执行
 
@@ -58,6 +66,8 @@ OS X 自带 Ruby。在终端里输入
 
 ## Pygments (语法高亮)
 
+---
+
 执行一下语句：
 
 	sudo easy_install Pygment
@@ -66,6 +76,8 @@ Pygments 语法可参照 <http://pygments.org/docs/lexers/>
 
 
 ## 资源
+
+---
 
 下面列出学习 Jekyll/Git/Markdown 的一些好资源：
 
