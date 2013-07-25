@@ -3,10 +3,10 @@ layout: post
 title:  "OS X 下安装配置 Jekyll"
 date:   2013-07-25 08:17:59
 categories: 
-- jekyll 
-- update
+- tech 
 tags:
--
+- jekyll
+- github
 
 ---
 
@@ -60,3 +60,13 @@ OS X 自带 Ruby。在终端里输入
 	sudo easy_install Pygment
 	
 Pygments 语法可参照 <http://pygments.org/docs/lexers/>
+
+
+## 资源
+---
+下面列出学习 Jekyll/Git/Markdown 的一些好资源：
+
+* Jekyll: <http://jekyllrb.com/docs/home/>
+* Markdown: <http://daringfireball.net/projects/markdown/>
+* Github: <https://help.github.com/>
+* GotGithub: <http://www.worldhello.net/gotgithub/>

@@ -1,6 +1,6 @@
 markdown: rdiscount
 permalink: /:title/
-url: http://localhost:4000
+url: http://dannyli.github.io/
 author: Danny Li
 pygments: true
 safe: true
