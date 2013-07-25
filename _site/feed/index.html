@@ -7,7 +7,7 @@
     <title>Danny Li</title>
     <link href="http://dannyli.github.io/feed/" rel="self" />
     <link href="http://webfrogs.github.com" />
-    <lastBuildDate>2013-07-25T18:34:48+08:00</lastBuildDate>
+    <lastBuildDate>2013-07-25T18:42:59+08:00</lastBuildDate>
     <webMaster>ccf.developer@gmail.com</webMaster>
     
     <item>
@@ -173,6 +173,35 @@ jekyll serve --watch
 <li>Github: <a href="https://help.github.com/">https://help.github.com/</a></li>
 <li>GotGithub: <a href="http://www.worldhello.net/gotgithub/">http://www.worldhello.net/gotgithub/</a></li>
 </ul>
+
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Windows 下自动连接 NTU VPN（不用每次输入用户名密码）</title>
+      <link href="http://dannyli.github.io/notes/connect-ntu-vpn-automatically-in-windows/"/>
+      <pubDate>2012-04-14T21:17:59+08:00</pubDate>
+      <author>Danny Li</author>
+      <guid>http://dannyli.github.io/notes/connect-ntu-vpn-automatically-in-windows</guid>
+      <content:encoded><![CDATA[<p>在 Windows 下连接 NTU 的 VPN 一般使用 Juniper Network 的 Network Connection 程序。每次连接都要手动输入用户名密码，非常不方便。今天研究了一下通过命令行连接 NTU VPN。通过命令行可以实现在桌面创建一个快捷方式，双击图标直接连接 NTU VPN。</p>
+
+<p>假设已经安装好了 NTU 官方提供的<a href="http://www.ntu.edu.sg/cits/itnetworking/remoteaccess/Pages/quickstartguide.aspx#sslvpn">SSL VPN 程序</a> (Juniper Networks - Network Connection)。</p>
+
+<p>这里其实是使用一个叫 nclauncher 的命令程序。该文件位于 Network Connection 程序的安装目录下。Network Connection 程序的默认安装目录通常是 <code>%ProgramFiles%\Juniper Networks</code>。 该命令的用法可以通过输入 <code>nclauncher -help</code> 获得。在桌面创建快捷连接的步骤如下：</p>
+
+<ol>
+<li><p>打开记事本，输入以下内容</p>
+
+<pre><code> "%ProgramFiles%\Juniper Networks\Network Connect 6.5.0\nclauncher" -url https://ntuvpn.ntu.edu.sg/ -u [用户名] -p [密码] -r [域]"
+ EXIT
+</code></pre>
+
+<p>其中 <code>[用户名]</code> 和 <code>[密码]</code> 分别是 NTU 分配的用户名和密码，[域] 可填写 <strong>Student</strong>, <strong>Assoc</strong> 或者 <strong>Staff</strong>，注意大小写不能错，第一个字母必须是大写。</p>
+
+<p>  <code>%ProgramFiles%</code> 是程序默认的安装路径。如果操作系统是 64 位 Windows，则得将 <code>%ProgramFiles%</code> 改为 <code>%ProgramFiles(x86)%</code>。</p></li>
+<li><p>保存该文件为 .bat 或者 .cmd 文件到本地磁盘，如桌面；</p></li>
+<li>若要连接 VPN，双击该文件即可。</li>
+</ol>
 
 ]]></content:encoded>
     </item>

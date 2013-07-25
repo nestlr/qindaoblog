@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="Danny Li" />
-    <title>OS X 下安装配置 Jekyll | Danny Li</title>
+    <title>Windows 下自动连接 NTU VPN（不用每次输入用户名密码） | Danny Li</title>
     <link rel="shortcut icon" href="/favicon.ico">
     <link href="/feed/" rel="alternate" title="Danny Li" type="application/atom+xml" />
     <link rel="stylesheet" href="/media/css/style.css">
@@ -40,7 +40,7 @@
     <div id="container">
       <div id="main" role="main">
         <header>
-        <h1>OS X 下安装配置 Jekyll</h1>
+        <h1>Windows 下自动连接 NTU VPN（不用每次输入用户名密码）</h1>
         </header>
         <nav>
         <span><a title="home page" class="" href="/">Home</a></span>
@@ -50,84 +50,25 @@
         </nav>
         <article class="content">
         <section class="post">
-<h2>Xcode</h2>
+<p>在 Windows 下连接 NTU 的 VPN 一般使用 Juniper Network 的 Network Connection 程序。每次连接都要手动输入用户名密码，非常不方便。今天研究了一下通过命令行连接 NTU VPN。通过命令行可以实现在桌面创建一个快捷方式，双击图标直接连接 NTU VPN。</p>
 
-<hr />
+<p>假设已经安装好了 NTU 官方提供的<a href="http://www.ntu.edu.sg/cits/itnetworking/remoteaccess/Pages/quickstartguide.aspx#sslvpn">SSL VPN 程序</a> (Juniper Networks - Network Connection)。</p>
 
-<p>在 Mac App Store 中搜索安装 <a href="https://developer.apple.com/xcode/%E2%80%8E">Xcode</a>。</p>
+<p>这里其实是使用一个叫 nclauncher 的命令程序。该文件位于 Network Connection 程序的安装目录下。Network Connection 程序的默认安装目录通常是 <code>%ProgramFiles%\Juniper Networks</code>。 该命令的用法可以通过输入 <code>nclauncher -help</code> 获得。在桌面创建快捷连接的步骤如下：</p>
 
-<p>安装完毕后，进入 Xcode，在 <code>Preferences</code> 里的 <code>Downloads</code> 中安装 <strong>Command Line Tools</strong>.</p>
+<ol>
+<li><p>打开记事本，输入以下内容</p>
 
-<h2>Ruby</h2>
-
-<hr />
-
-<p>OS X 自带 Ruby。在终端里输入</p>
-
-<pre><code>ruby -v
+<pre><code> "%ProgramFiles%\Juniper Networks\Network Connect 6.5.0\nclauncher" -url https://ntuvpn.ntu.edu.sg/ -u [用户名] -p [密码] -r [域]"
+ EXIT
 </code></pre>
 
-<p>即可查看所安装的 Ruby 版本。</p>
+<p>其中 <code>[用户名]</code> 和 <code>[密码]</code> 分别是 NTU 分配的用户名和密码，[域] 可填写 <strong>Student</strong>, <strong>Assoc</strong> 或者 <strong>Staff</strong>，注意大小写不能错，第一个字母必须是大写。</p>
 
-<h2>RubyGems</h2>
-
-<hr />
-
-<p>访问 <a href="http://rubygems.org/pages/download">http://rubygems.org/pages/download</a> 下载 RubyGems 文件。将文件解压到本地，在终端执行：</p>
-
-<pre><code>sudo ruby setup.rb
-</code></pre>
-
-<h2>Jekyll</h2>
-
-<hr />
-
-<p>终端执行</p>
-
-<pre><code>gem install jekyll
-gem install rdiscount
-</code></pre>
-
-<p>执行时间可能较长。</p>
-
-<p>若提示</p>
-
-<blockquote><p>ERROR: Failed to build gem native extension</p></blockquote>
-
-<p>多半是因为没装 Xcode Command Line Tools 引起。</p>
-
-<p>安装完毕后，在指定目录下执行</p>
-
-<pre><code>jekyll new my-awesome-site
-cd my-awesome-site
-jekyll serve --watch
-</code></pre>
-
-<p>则可在浏览器中以 <code>localhost:4000</code> 访问。<code>--watch</code> 选项开启页面 regeneration，也就是修改页面后刷新浏览器立即可以看到更新。</p>
-
-<h2>Pygments (语法高亮)</h2>
-
-<hr />
-
-<p>执行一下语句：</p>
-
-<pre><code>sudo easy_install Pygment
-</code></pre>
-
-<p>Pygments 语法可参照 <a href="http://pygments.org/docs/lexers/">http://pygments.org/docs/lexers/</a></p>
-
-<h2>资源</h2>
-
-<hr />
-
-<p>下面列出学习 Jekyll/Git/Markdown 的一些好资源：</p>
-
-<ul>
-<li>Jekyll: <a href="http://jekyllrb.com/docs/home/">http://jekyllrb.com/docs/home/</a></li>
-<li>Markdown: <a href="http://daringfireball.net/projects/markdown/">http://daringfireball.net/projects/markdown/</a></li>
-<li>Github: <a href="https://help.github.com/">https://help.github.com/</a></li>
-<li>GotGithub: <a href="http://www.worldhello.net/gotgithub/">http://www.worldhello.net/gotgithub/</a></li>
-</ul>
+<p>  <code>%ProgramFiles%</code> 是程序默认的安装路径。如果操作系统是 64 位 Windows，则得将 <code>%ProgramFiles%</code> 改为 <code>%ProgramFiles(x86)%</code>。</p></li>
+<li><p>保存该文件为 .bat 或者 .cmd 文件到本地磁盘，如桌面；</p></li>
+<li>若要连接 VPN，双击该文件即可。</li>
+</ol>
 
 
 </section>
@@ -136,9 +77,9 @@ jekyll serve --watch
 <br/>
 <br/>
 <span>
-	<a  href="http://dannyli.github.io/notes/connect-ntu-vpn-automatically-in-windows/" class="pageNav"  >Previous</a>
+	<a  href="http://dannyli.github.io/notes/using-endnote-latex-bibtex/" class="pageNav"  >Previous</a>
 	&nbsp;&nbsp;&nbsp;
-	<a  href="http://dannyli.github.io/notes/blogging-with-github-pages/" class="pageNav"  >Next</a>
+	<a  href="http://dannyli.github.io/notes/osx-jekyll/" class="pageNav"  >Next</a>
 </span>
 <hr>
 <span class="author">
@@ -146,7 +87,7 @@ jekyll serve --watch
 </span>
 <span class="time">
   /
-  <time datetime="2013-07-25">2013-07-25</time>
+  <time datetime="2012-04-14">2012-04-14</time>
 </span>
 <br />
 <span class="license">
@@ -164,9 +105,9 @@ jekyll serve --watch
 <span class="tags">
   tagged with 
   
-  <a href="/tags/#jekyll" title="jekyll">jekyll</a>&nbsp;
+  <a href="/tags/#vpn" title="vpn">vpn</a>&nbsp;
   
-  <a href="/tags/#github" title="github">github</a>&nbsp;
+  <a href="/tags/#ntu" title="ntu">ntu</a>&nbsp;
   
 </span>
 
@@ -179,12 +120,12 @@ $(function(){
     var url = false;
         if (e.which == 37 || e.which == 74) {  // Left arrow and J
             
-        url = 'http://dannyli.github.io/notes/connect-ntu-vpn-automatically-in-windows/';
+        url = 'http://dannyli.github.io/notes/using-endnote-latex-bibtex/';
         
         }
         else if (e.which == 39 || e.which == 75) {  // Right arrow and K
             
-        url = 'http://dannyli.github.io/notes/blogging-with-github-pages/';
+        url = 'http://dannyli.github.io/notes/osx-jekyll/';
         
         }
         if (url) {
