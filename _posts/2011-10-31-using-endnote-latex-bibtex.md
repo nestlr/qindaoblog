@@ -30,14 +30,17 @@ tags:
 建立好 .bib 文件后就可以按照常规使用 BibTeX 的方式建立文献参考了。
 
 *  编写 LaTeX 代码；
-*  在结尾前加入 BibTeX 相关代码，如 {% highlight latex  %}
+*  在结尾前加入 BibTeX 相关代码，如 
+{% highlight latex %}
 \bibliographystyle{plain}
 \bibliography{mybib} % mybib是Endnote导出的文件名
-{% endhighlight %} 
+{% endhighlight latex %}
 *  正文中需要引用的地方就可以加入
+
 {% highlight latex %}
 \cite{dannyli2011a} % dannyli2011a 是之前在Endnote 中设置的 label
 {% endhighlight %}
+
 
 ### References
 
