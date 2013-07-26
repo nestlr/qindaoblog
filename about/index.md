@@ -6,10 +6,11 @@ comments: no
 
 I'm Danny Li. Born in Wuhan. Studying in Singapore.
 
-----
 
-###联系方式：        
+### 联系方式：        
+---
 
-新浪微博: [@Danny](http://weibo.com/n/Danny)	 
-V2EX: [@Danny](http://www.v2ex.com/?r=Danny)	
-知乎: [@Danny](http://www.zhihu.com/people/Danny)
+* 微博: <http://weibo.com/dannyli>
+* 豆瓣: <http://www.douban.com/people/dannyli>
+* 知乎: <http://www.zhihu.com/people/Danny>
+* GitHub: <http://github.com/dannyli>
