@@ -3,10 +3,10 @@ layout: post
 title:  "Windows 安装 Jekyll 若干问题的解决"
 date:   2013-07-26 09:17:59
 categories: 
-- notes 
+- Notes 
 tags:
-- jekyll
-- windows
+- Jekyll
+- Windows
 
 ---
 
@@ -48,11 +48,15 @@ Jekyll 官方网站是以外链的形式给出的 [Windows 下安装 Jekyll 方�
 
 这个是中文编码引起的问题。一旦 post 中有中文字符就会出现这样的问题。当然这个是 Windows 下特有的问题。解决方法是将 `C:/Ruby193/lib/ruby/gems/1.9.1/gems/jekyll-0.11.2/lib/jekyll/convertible.rb` 文件 （路径可能与此不同）中的 
 
-	self.content = File.read(File.join(base, name)) 
+{% highlight ruby %}
+self.content = File.read(File.join(base, name)) 
+{% endhighlight ruby %}
 
 改为
 
-	self.content = File.read(File.join(base, name), :encoding => "utf-8")
+{% highlight ruby %}
+self.content = File.read(File.join(base, name), :encoding => "utf-8")
+{% endhighlight ruby %}
 
 ### References 
 

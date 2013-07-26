@@ -50,7 +50,28 @@
         <span><a title="tags" class="" href="/archive/">Archive</a></span>
         </nav>
         <article class="content">
-        <section class="post">
+        <section>
+2013-07-26
+
+<span class="categories">
+ in 
+  <a href="/categories/#notes" title="notes">notes</a>&nbsp;
+  
+</span>, 
+
+
+<span class="tags">
+  tags:
+  
+  <a href="/tags/#Jekyll" title="Jekyll">Jekyll</a>&nbsp;
+  
+  <a href="/tags/#Windows" title="Windows">Windows</a>&nbsp;
+  
+</span>
+
+</section>
+
+<section class="post">
 <p>Jekyll 官方网站是以外链的形式给出的 <a href="http://www.madhur.co.in/blog/2011/09/01/runningjekyllwindows.html">Windows 下安装 Jekyll 方法</a>。这个方法总体上是可行的，但是这篇文章写于 2011 年，并且没有考虑中文环境下的问题，所以安装过程中会碰到种种问题。</p>
 
 <hr />
@@ -96,13 +117,15 @@ gem install pygments.rb --version "=0.5.0"
 
 <p>这个是中文编码引起的问题。一旦 post 中有中文字符就会出现这样的问题。当然这个是 Windows 下特有的问题。解决方法是将 <code>C:/Ruby193/lib/ruby/gems/1.9.1/gems/jekyll-0.11.2/lib/jekyll/convertible.rb</code> 文件 （路径可能与此不同）中的</p>
 
-<pre><code>self.content = File.read(File.join(base, name)) 
-</code></pre>
+<div class="highlight"><pre><code class="ruby"><span class="nb">self</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="nb">name</span><span class="p">))</span> 
+</code></pre></div>
+
 
 <p>改为</p>
 
-<pre><code>self.content = File.read(File.join(base, name), :encoding =&gt; "utf-8")
-</code></pre>
+<div class="highlight"><pre><code class="ruby"><span class="nb">self</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="nb">name</span><span class="p">),</span> <span class="ss">:encoding</span> <span class="o">=&gt;</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+</code></pre></div>
+
 
 <h3>References</h3>
 
@@ -116,6 +139,13 @@ gem install pygments.rb --version "=0.5.0"
 </section>
 <section class="meta">
 
+<span class="author">
+  <a href="http://log.dannyli.net">Danny Li</a>
+</span>
+<span class="time">
+  /
+  <time datetime="2013-07-26">2013-07-26</time>
+</span>
 <br/>
 <br/>
 <span>
@@ -123,36 +153,6 @@ gem install pygments.rb --version "=0.5.0"
 	&nbsp;&nbsp;&nbsp;
 	<a  href="http://log.dannyli.net/notes/pygments-config/" class="pageNav"  >Next</a>
 </span>
-<hr>
-<span class="author">
-  <a href="http://webfrogs.github.com">Danny Li</a>
-</span>
-<span class="time">
-  /
-  <time datetime="2013-07-26">2013-07-26</time>
-</span>
-<br />
-<span class="license">
-  Published under <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">(CC) BY-NC-SA</a>
-</span>
-
-<span class="categories">
-  in categories
-  
-  <a href="/categories/#notes" title="notes">notes</a>&nbsp;
-  
-</span>
-
-
-<span class="tags">
-  tagged with 
-  
-  <a href="/tags/#jekyll" title="jekyll">jekyll</a>&nbsp;
-  
-  <a href="/tags/#windows" title="windows">windows</a>&nbsp;
-  
-</span>
-
 </section>
 
 <!--

@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="Danny Li" />
-    <title>OS X 下安装配置 Jekyll | Danny Li</title>
+    <title>IEEE 论文 LaTeX 模板 – LaTeX2e 类文件 | Danny Li</title>
     <link rel="shortcut icon" href="/favicon.ico">
     <link href="/feed/" rel="alternate" title="Danny Li" type="application/atom+xml" />
     <link rel="stylesheet" href="/media/css/style.css">
@@ -40,7 +40,7 @@
     <div id="container">
       <div id="main" role="main">
         <header>
-        <h1>OS X 下安装配置 Jekyll</h1>
+        <h1>IEEE 论文 LaTeX 模板 – LaTeX2e 类文件</h1>
         </header>
         <nav>
         <span><a title="home page" class="" href="/">Home</a></span>
@@ -51,7 +51,7 @@
         </nav>
         <article class="content">
         <section>
-2013-07-25
+2010-07-13
 
 <span class="categories">
  in 
@@ -63,96 +63,38 @@
 <span class="tags">
   tags:
   
-  <a href="/tags/#Jekyll" title="Jekyll">Jekyll</a>&nbsp;
+  <a href="/tags/#IEEE" title="IEEE">IEEE</a>&nbsp;
   
-  <a href="/tags/#GitHub" title="GitHub">GitHub</a>&nbsp;
+  <a href="/tags/#LaTeX" title="LaTeX">LaTeX</a>&nbsp;
   
-  <a href="/tags/#OS X" title="OS X">OS X</a>&nbsp;
+  <a href="/tags/#paper" title="paper">paper</a>&nbsp;
   
 </span>
 
 </section>
 
 <section class="post">
-<h2>Xcode</h2>
+<p>研究人员如果把大量时间用来写论文上显然是不本末倒置。诚然论文对各位学者们十分重要，但其实说到底这些只是“虚荣”。</p>
 
-<hr />
+<p>写论文的很大一部分时间是用在排版上。特别是使用 LaTeX 这样的排版方式，大多数软件不是所见即所得的编辑工具，排版要下极大的功夫。其实现在的各种 LaTeX 排版工具都有“宏命令”，如果我们能有这样一个 IEEE 的“模板”，只关心文章内容而不是文章的界面和结构，这样定能事倍功半。</p>
 
-<p>在 Mac App Store 中搜索安装 <a href="https://developer.apple.com/xcode/%E2%80%8E">Xcode</a>。</p>
+<p><a href="http://mocha-java.uccs.edu/ieee/ieeeftp/ieeecls.pdf">这里</a>有一个 pdf 模板，打开看看和平时看的 paper 格式基本一模一样。这个 pdf 是用一个 TeX 模板生成的。</p>
 
-<p>安装完毕后，进入 Xcode，在 <code>Preferences</code> 里的 <code>Downloads</code> 中安装 <strong>Command Line Tools</strong>.</p>
+<h3>LaTeX2e files for formatting IEEE papers</h3>
 
-<h2>Ruby</h2>
-
-<hr />
-
-<p>OS X 自带 Ruby。在终端里输入</p>
-
-<pre><code>ruby -v
-</code></pre>
-
-<p>即可查看所安装的 Ruby 版本。</p>
-
-<h2>RubyGems</h2>
-
-<hr />
-
-<p>访问 <a href="http://rubygems.org/pages/download">http://rubygems.org/pages/download</a> 下载 RubyGems 文件。将文件解压到本地，在终端执行：</p>
-
-<pre><code>sudo ruby setup.rb
-</code></pre>
-
-<h2>Jekyll</h2>
-
-<hr />
-
-<p>终端执行</p>
-
-<pre><code>gem install jekyll
-gem install rdiscount
-</code></pre>
-
-<p>执行时间可能较长。</p>
-
-<p>若提示</p>
-
-<blockquote><p>ERROR: Failed to build gem native extension</p></blockquote>
-
-<p>多半是因为没装 Xcode Command Line Tools 引起。</p>
-
-<p>安装完毕后，在指定目录下执行</p>
-
-<pre><code>jekyll new my-awesome-site
-cd my-awesome-site
-jekyll serve --watch
-</code></pre>
-
-<p>则可在浏览器中以 <code>localhost:4000</code> 访问。<code>--watch</code> 选项开启页面 regeneration，也就是修改页面后刷新浏览器立即可以看到更新。</p>
-
-<h2>Pygments (语法高亮)</h2>
-
-<hr />
-
-<p>执行一下语句：</p>
-
-<pre><code>sudo easy_install Pygment
-</code></pre>
-
-<p>Pygments 语法可参照 <a href="http://pygments.org/docs/lexers/">http://pygments.org/docs/lexers/</a></p>
-
-<h2>资源</h2>
-
-<hr />
-
-<p>下面列出学习 Jekyll/Git/Markdown 的一些好资源：</p>
+<p>类文件 ieee.cls is well documented in the above paper. 这里提供这个文件以及大量的例子。</p>
 
 <ul>
-<li>Jekyll: <a href="http://jekyllrb.com/docs/home/">http://jekyllrb.com/docs/home/</a></li>
-<li>Markdown: <a href="http://daringfireball.net/projects/markdown/">http://daringfireball.net/projects/markdown/</a></li>
-<li>Github: <a href="https://help.github.com/">https://help.github.com/</a></li>
-<li>GotGithub: <a href="http://www.worldhello.net/gotgithub/">http://www.worldhello.net/gotgithub/</a></li>
+<li><a href="http://mocha-java.uccs.edu/ieee/ieeeftp/ieee.cls">ieee.cls</a> 类文件</li>
+<li><a href="http://mocha-java.uccs.edu/ieee/ieeeftp/ieeecls.pdf">ieeecls.pdf</a> IEEE 论文：Specification of Common IEEE Styles，可以看成模板生成的 pdf 示例文件。</li>
+<li><a href="http://mocha-java.uccs.edu/ieee/ieeeftp/ieeecls.tex">ieeecls.tex</a> 以上文章 LaTeX2e 源文件。这个文件是很好的学习 LaTeX 材料，对照文章和源代码分析，效果很好。</li>
+<li><a href="http://mocha-java.uccs.edu/ieee/ieeeftp/ieeeskel.tex">ieeeskel.tex</a> IEEE 论文的简单框架。可以用这个开始写一篇新文章。</li>
+<li><a href="http://mocha-java.uccs.edu/ieee/ieeeftp/ieeefig.sty">ieeefig.sty</a> 图片格式。
+下载以上 .cls 和 .tex 文件到同一目录下，用任何 LaTeX 编辑器打开即可。</li>
 </ul>
 
+
+<p>参考：<a href="http://mocha-java.uccs.edu/ieee/">http://mocha-java.uccs.edu/ieee/</a></p>
 
 </section>
 <section class="meta">
@@ -162,14 +104,14 @@ jekyll serve --watch
 </span>
 <span class="time">
   /
-  <time datetime="2013-07-25">2013-07-25</time>
+  <time datetime="2010-07-13">2010-07-13</time>
 </span>
 <br/>
 <br/>
 <span>
-	<a  href="http://log.dannyli.net/notes/connect-ntu-vpn-automatically-in-windows/" class="pageNav"  >Previous</a>
+	<a  href="http://log.dannyli.net/notes/windows-xp-apache-php4-mysql4/" class="pageNav"  >Previous</a>
 	&nbsp;&nbsp;&nbsp;
-	<a  href="http://log.dannyli.net/notes/blogging-with-github-pages/" class="pageNav"  >Next</a>
+	<a  href="http://log.dannyli.net/notes/my-firefox-addons/" class="pageNav"  >Next</a>
 </span>
 </section>
 
@@ -180,12 +122,12 @@ $(function(){
     var url = false;
         if (e.which == 37 || e.which == 74) {  // Left arrow and J
             
-        url = 'http://log.dannyli.net/notes/connect-ntu-vpn-automatically-in-windows/';
+        url = 'http://log.dannyli.net/notes/windows-xp-apache-php4-mysql4/';
         
         }
         else if (e.which == 39 || e.which == 75) {  // Right arrow and K
             
-        url = 'http://log.dannyli.net/notes/blogging-with-github-pages/';
+        url = 'http://log.dannyli.net/notes/my-firefox-addons/';
         
         }
         if (url) {

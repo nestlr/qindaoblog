@@ -3,10 +3,10 @@ layout: post
 title:  "Jekyll 代码高亮利器 Pygments 配置"
 date:   2013-07-26 14:17:59
 categories: 
-- notes 
+- Notes 
 tags:
-- jekyll
-- pygments
+- Jekyll
+- Pygments
 
 ---
 

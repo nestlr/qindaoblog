@@ -7,7 +7,7 @@
     <title>Danny Li</title>
     <link href="http://log.dannyli.net/feed/" rel="self" />
     <link href="http://webfrogs.github.com" />
-    <lastBuildDate>2013-07-26T15:01:20+08:00</lastBuildDate>
+    <lastBuildDate>2013-07-26T16:57:22+08:00</lastBuildDate>
     <webMaster>ccf.developer@gmail.com</webMaster>
     
     <item>
@@ -102,13 +102,15 @@ gem install pygments.rb --version "=0.5.0"
 
 <p>这个是中文编码引起的问题。一旦 post 中有中文字符就会出现这样的问题。当然这个是 Windows 下特有的问题。解决方法是将 <code>C:/Ruby193/lib/ruby/gems/1.9.1/gems/jekyll-0.11.2/lib/jekyll/convertible.rb</code> 文件 （路径可能与此不同）中的</p>
 
-<pre><code>self.content = File.read(File.join(base, name)) 
-</code></pre>
+<div class="highlight"><pre><code class="ruby"><span class="nb">self</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="nb">name</span><span class="p">))</span> 
+</code></pre></div>
+
 
 <p>改为</p>
 
-<pre><code>self.content = File.read(File.join(base, name), :encoding =&gt; "utf-8")
-</code></pre>
+<div class="highlight"><pre><code class="ruby"><span class="nb">self</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="nb">name</span><span class="p">),</span> <span class="ss">:encoding</span> <span class="o">=&gt;</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+</code></pre></div>
+
 
 <h3>References</h3>
 
@@ -372,6 +374,320 @@ jekyll serve --watch
 <ul>
 <li>Bevan S. Weir, <a href="http://www.rhizobia.co.nz/latex/convert.html">Step-by-step guide to using EndNote with LaTeX and BibTeX</a></li>
 </ul>
+
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>我所用的 Google Chrome 扩展插件</title>
+      <link href="http://log.dannyli.net/notes/my-google-chrome-extensions/"/>
+      <pubDate>2011-10-23T22:15:59+08:00</pubDate>
+      <author>Danny Li</author>
+      <guid>http://log.dannyli.net/notes/my-google-chrome-extensions</guid>
+      <content:encoded><![CDATA[<p>全面转向 Google Chrome 后，一个明显的好处就是由于内建的书签同步（已经支持设置、搜索引擎同步），高效的搜索等功能可以明显减少插件的数量。下面是我常用的 Chrome 扩展插件 (extensions)。</p>
+
+<h3>必装</h3>
+
+<hr />
+
+<ul>
+<li><a href="https://chrome.google.com/webstore/detail/cfhdojbkjhnklbpkdaibdccddilifddb">Adblock Plus</a> 屏蔽网页广告。</li>
+<li><a href="https://chrome.google.com/webstore/detail/dpplabbmogkhghncfbfdeeokoefdjegm">Proxy SwitchySharp</a> 代理软件，配合 SSH 使用。不细说。</li>
+</ul>
+
+
+<h3>选装</h3>
+
+<hr />
+
+<ul>
+<li><a href="https://chrome.google.com/webstore/detail/fnfnbeppfinmnjnjhedifcfllpcfgeea">IE Tab Multi</a> 有些网页只支持 IE。</li>
+<li><a href="https://chrome.google.com/webstore/detail/mihcahmgecmbnbcchbopgniflfhgnkff">Google Mail Checker</a> Gmail 新邮件提醒。</li>
+<li><a href="https://chrome.google.com/webstore/detail/bmagokdooijbeehmkpknfglimnifench">Firebug Lite</a> 网页调试，Firefox 上神器的移植版本。</li>
+<li><a href="https://chrome.google.com/webstore/detail/nlbjncdgjeocebhnmkbbbdekmmmcbfjd">RSS Subscription Extension</a> 提供 RSS 订阅按钮。</li>
+<li><a href="https://chrome.google.com/webstore/detail/gmpllenfapkfpdkahamlbmbichihpmmg">迅雷、快车、旋风专用链自动破解</a> 破解 thunder/flashget/qqdl 链接，方便下载。</li>
+<li><a href="https://chrome.google.com/webstore/detail/dbpojpfdiliekbbiplijcphappgcgjfn">Flag for Chrome</a> 显示网页信息包括服务器 IP、所在国家、PageRank 等等。</li>
+<li><a href="https://chrome.google.com/webstore/detail/mfjkgbjaikamkkojmakjclmkianficch">Download Assistant</a> 用来选择默认的下载器。</li>
+<li><a href="https://chrome.google.com/webstore/detail/cpngackimfmofbokmjmljamhdncknpmg">Screen Capture</a> 网页截屏。</li>
+<li><a href="https://chrome.google.com/webstore/detail/hhinaapppaileiechjoiifaancjggfjm">Last.fm Scrobbler</a> 可以记录你在视频网站看 MV 的歌曲信息。</li>
+<li><a href="https://chrome.google.com/webstore/detail/hokfcbmfpgeajcgkaeigohghnkhjmcbj">YouTube Downloader: MP3 / HD Video</a> 下载 Youtube 视频。</li>
+</ul>
+
+
+<p>现在缺少的几个插件包括：</p>
+
+<ul>
+<li>检测网络媒体文件工具（Flashgot）</li>
+<li>下载加速工具（DownThemAll）</li>
+<li><del>Twitter 工具（Echofon）</del></li>
+<li><del>搜索引擎备份同步工具</del></li>
+</ul>
+
+
+<p>由于 Chrome 不是开源软件，Chrome 版本的 Flashgot 和 DownThemAll 无法实现 Firefox 上的诸多强大功能。这也是我有时还在使用 Firefox 的原因。另外，插件太多会导致 Chrome 启动速度减慢，这也是值得注意的。</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>我所用的 Firefox 插件</title>
+      <link href="http://log.dannyli.net/notes/my-firefox-addons/"/>
+      <pubDate>2011-03-23T22:17:59+08:00</pubDate>
+      <author>Danny Li</author>
+      <guid>http://log.dannyli.net/notes/my-firefox-addons</guid>
+      <content:encoded><![CDATA[<p>今天 <a href="http://blog.mozilla.com/blog/2011/03/22/mozilla-launches-firefox-4-and-delivers-a-fast-sleek-and-customizable-browsing-experience-to-more-than-400-million-users-worldwide-2/">Mozilla 终于放出了 Firefox 4 正式版</a>。尽管越来越多的人转向了 Google Chrome，但是 Firefox 一直都还是我的首选。我如此“顽固”是有原因的：</p>
+
+<ol>
+<li>曾经几次想转向 Chrome，都没坚持下去。Chrome 更新过于频繁，并行版本太多，而且界面元素样式也并不是我喜欢的；</li>
+<li>对于我来说启动速度并不是什么重要的问题；</li>
+<li>已经习惯了 Firefox 的插件。Chrome 上很多插件还不成熟（现在情况不不太清楚）。</li>
+</ol>
+
+
+<p>这里列出一下我常用的插件。我在 Firefox 的插件网站上建了两个 list，分别是</p>
+
+<h2><a href="https://addons.mozilla.org/en-US/firefox/collections/dannyli/favorites/">My Favorite Add-ons</a>（日常浏览网页）</h2>
+
+<hr />
+
+<ul>
+<li><h4>Flashgot</h4>
+
+<p>使 Firefox 支持各种下载软件 (迅雷、QQ 旋风、Speed Download 等)。当然很多下载软件也有自己的 Firefox 插件。如果你不想每个都装那还是使用 Flashgot 吧。还有一个特别有用的功能是可以探测网页中的视频文件，一般视频网站不会给下载链接，Flashgot 可以探测出视频的地址（一般是 .flv 文件，就是 Flash Video，这个才是 Flashgot 名字的来源吧？）。</p></li>
+<li><h4>Download Statusbar</h4>
+
+<p>使用浏览器内建下载器，默认是弹出一个小窗口显示下载进度。装上这个下载进度就在底部的状态栏显示。</p></li>
+<li><h4>Adblock Plus</h4>
+
+<p>阻止讨厌的广告。不过有些网站会有“Anti-Adblock”策略，因为如果想用广告弄点收入，网站所有者可不希望用户都装 Adblock 把广告都屏蔽掉吧。</p></li>
+<li><h4><del> Xmarks Sync</del></h4>
+
+<p><del>同步书签，必用。以前叫 Foxmarks，后来有一阵子官方说没资金开发了，如果没人赞助就要停止开发，搞得人心惶惶。于是我就改用官方的 Firefox Sync。但是这个 Firefox Sync 有点过于垃圾了，经常重复同步，改变书签顺序什么的，在官网评价是两星（五星是满分）。后来危机解决（说停止开发估计是策略），现在又重新用上 Xmarks 了。</del></p></li>
+<li>Delicious Bookmarks
+网页收藏，最好的书签服务。</li>
+<li><h4>Tab Mix Plus</h4>
+
+<p>更改标签浏览的一些设置，比如设置某个动作是默认开新窗口还是新标签等。</p></li>
+<li><h4>Web Notifier</h4>
+
+<p>邮件通知，支持大多数主流邮箱服务 (Gmail, Yahoo, Hotmail, POP3)。</p></li>
+<li><h4>Echofon for Twitter</h4>
+
+<p>推特客户端。一般只在 Windows 下才用，在 Mac 中我一般用官方的程序 Twitter for Mac。</p></li>
+<li><h4>FoxyProxy</h4>
+
+<p>代理设置。由于这两年都在国外，用得不太多，有时为了注册某些网站使用一下。</p></li>
+<li><h4>Flagfox</h4>
+
+<p>一个小插件，能显示当前网站的服务器所在的国家。</p></li>
+<li><h4>Favicon Picker</h4>
+
+<p>一个小插件，能修改书签栏收藏网站的图标，对我这种视觉控才有用。</p></li>
+<li><h4>FireGestures</h4>
+
+<p>以前很鄙视鼠标手势，最近发现我该鄙视我自己。(2011-4-1)</p></li>
+<li><h4>Stylish</h4>
+
+<p>通过 JS 脚本修改 Firefox 和网页外观。(2011-4-7)</p></li>
+<li>IE Tab 2
+使用 IE 内核浏览指定网站。</li>
+</ul>
+
+
+<h2><a href="https://addons.mozilla.org/en-US/firefox/collections/dannyli/web-development/">Web Development</a>（网页开发）</h2>
+
+<hr />
+
+<ul>
+<li><h4>Web Development</h4>
+
+<p>看名字就知道是干什么的。一个强大的网页开发工具包。</p></li>
+<li><h4>Firebug</h4>
+
+<p>调试网页用。我主要用他来分析网页布局结构。因为我不是专业开发者，经常被一堆 div 搞得头大，这个东西可以很直观地在网页上用不同的颜色区块显示某个 div 的范围。</p></li>
+<li><h4>Greasemonkey</h4>
+
+<p>这个其实也不算网页开发的工具吧。但是和 JS 有关，就放在这里吧。可以通过 JS 更改网页的 CSS，用得好的话无比强大！以前用来玩网页游戏，简直是个外挂。脚本在 <a href="http://userscripts.org">Userscripts.org</a> 下载。</p></li>
+<li><h4>YShow</h4>
+
+<p>分析网页效率，指出哪些地方可以改进。好像和 Firebug 是一家的。</p></li>
+<li><h4>User Agent Switcher</h4>
+
+<p>不仅仅可以用与开发网页时的兼容性测试，有时浏览国内的也些视频网站也很有用。(2011-4-1)</p></li>
+</ul>
+
+
+<p>最后我表示，很多人喜欢争论什么浏览器好，什么浏览器。其实每个人好与不好的标准不尽相同，因此没有一个绝对的好或不好。一个人只能说哪一个浏览器更适合他，一味的推崇自己喜爱的浏览器并不是可取的。我想这个观点在任何事物上都或多或少能够体现。没有最好的，只有最适合的。</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>IEEE 论文 LaTeX 模板 – LaTeX2e 类文件</title>
+      <link href="http://log.dannyli.net/notes/latex-template-for-ieee-paper/"/>
+      <pubDate>2010-07-13T22:17:59+08:00</pubDate>
+      <author>Danny Li</author>
+      <guid>http://log.dannyli.net/notes/latex-template-for-ieee-paper</guid>
+      <content:encoded><![CDATA[<p>研究人员如果把大量时间用来写论文上显然是不本末倒置。诚然论文对各位学者们十分重要，但其实说到底这些只是“虚荣”。</p>
+
+<p>写论文的很大一部分时间是用在排版上。特别是使用 LaTeX 这样的排版方式，大多数软件不是所见即所得的编辑工具，排版要下极大的功夫。其实现在的各种 LaTeX 排版工具都有“宏命令”，如果我们能有这样一个 IEEE 的“模板”，只关心文章内容而不是文章的界面和结构，这样定能事倍功半。</p>
+
+<p><a href="http://mocha-java.uccs.edu/ieee/ieeeftp/ieeecls.pdf">这里</a>有一个 pdf 模板，打开看看和平时看的 paper 格式基本一模一样。这个 pdf 是用一个 TeX 模板生成的。</p>
+
+<h3>LaTeX2e files for formatting IEEE papers</h3>
+
+<p>类文件 ieee.cls is well documented in the above paper. 这里提供这个文件以及大量的例子。</p>
+
+<ul>
+<li><a href="http://mocha-java.uccs.edu/ieee/ieeeftp/ieee.cls">ieee.cls</a> 类文件</li>
+<li><a href="http://mocha-java.uccs.edu/ieee/ieeeftp/ieeecls.pdf">ieeecls.pdf</a> IEEE 论文：Specification of Common IEEE Styles，可以看成模板生成的 pdf 示例文件。</li>
+<li><a href="http://mocha-java.uccs.edu/ieee/ieeeftp/ieeecls.tex">ieeecls.tex</a> 以上文章 LaTeX2e 源文件。这个文件是很好的学习 LaTeX 材料，对照文章和源代码分析，效果很好。</li>
+<li><a href="http://mocha-java.uccs.edu/ieee/ieeeftp/ieeeskel.tex">ieeeskel.tex</a> IEEE 论文的简单框架。可以用这个开始写一篇新文章。</li>
+<li><a href="http://mocha-java.uccs.edu/ieee/ieeeftp/ieeefig.sty">ieeefig.sty</a> 图片格式。
+下载以上 .cls 和 .tex 文件到同一目录下，用任何 LaTeX 编辑器打开即可。</li>
+</ul>
+
+
+<p>参考：<a href="http://mocha-java.uccs.edu/ieee/">http://mocha-java.uccs.edu/ieee/</a></p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Windows XP 下搭建 Apache + PHP 4 + MySQL 4 环境</title>
+      <link href="http://log.dannyli.net/notes/windows-xp-apache-php4-mysql4/"/>
+      <pubDate>2010-05-03T22:17:59+08:00</pubDate>
+      <author>Danny Li</author>
+      <guid>http://log.dannyli.net/notes/windows-xp-apache-php4-mysql4</guid>
+      <content:encoded><![CDATA[<p>这个年头估计没人写这种旧版本的 Web 服务器搭建教程了。这里只是做个存档，由于我几年前的数据还没转换成新的版本，所以得搭建老的平台进行数据转换。</p>
+
+<p>在开始之前，首先下载到以下组件的相应版本：</p>
+
+<ul>
+<li>Apache HTTP Server2.063</li>
+<li>PHP 4.4.9</li>
+<li>MySQL 4.026</li>
+<li>phpMyAdmin 2.0 以上</li>
+</ul>
+
+
+<h2>Step 1: 安装 Apache HTTP Server</h2>
+
+<hr />
+
+<ol>
+<li>双击 Apache 的安装文件 apache_2.0.63-win32-x86-openssl-0.9.7m.msi；</li>
+<li>点 Next 按钮；</li>
+<li>选择同意 Agreement，点 Next 按钮；</li>
+<li>再点 Next 按钮；</li>
+<li>在 Server Information 对话框，要填写域名和服务器名等信息。如果是本地安装，一般在 Network Domain 和 Server Name 都填 localhost。下面的 Email 随便填把也没什么用。点 Next；</li>
+<li>Setup Type，选 Custom，Next；</li>
+<li>安装地址，为了管理方便，统一把程序都安装到 <code>C:\Webserver</code> 目录下。这里填 <code>C:\Webserver</code>，之后 Apache 会被安装到 <code>C:\Webserver\Apache2</code> 目录下；</li>
+<li>点 Next，再点 Install 开始安装。</li>
+<li>验证 Apache 是否安装成功：打开浏览器在地址栏里输入 <code>localhost</code>，如果看到提示安装成功的页面就对了。</li>
+</ol>
+
+
+<h2>Step 2: 配置 Apache</h2>
+
+<hr />
+
+<ol>
+<li>打开 <code>C:\Webserver\Apache2\conf\httpd.conf</code> 文件，这个是 Apache 的主要配置文件。</li>
+<li><p>搜索字符串</p>
+
+<pre><code>C:/Webserver/Apache2/htdocs
+</code></pre>
+
+<p>这个定义根目录的位置，文件一共有两个地方，把它们都改为</p>
+
+<pre><code>C:/Webserver/wwwroot
+</code></pre></li>
+<li><p>在 <code>C:\Webserver</code> 下手动新建一个 wwwroot 文件夹。</p></li>
+</ol>
+
+
+<h2>Step 3: 安装与配置 PHP</h2>
+
+<hr />
+
+<p>安装了这个 Apache 才能对 .php 网页进行解析。</p>
+
+<ol>
+<li>解压 PHP 安装包到 <code>C:\Webserver</code>下，把 php 文件夹的名字改成 php4。这样所有的 PHP 程序文件都位于 <code>C:\Webserver\php4</code> 下。</li>
+<li>复制 <code>php.ini-dist</code> 文件到 <code>C:\Windows</code> 下，将其重命名为 <code>php.ini</code></li>
+<li><p>打开 php.ini，搜索</p>
+
+<pre><code>;extension=php_mbstring.dll
+</code></pre>
+
+<p>可以看到有很多的 extension 前面被分号注释掉了，要启用哪一项就把前面的分号去掉。这里启用 <strong>gd2</strong> 库（图形）和 <strong>mbstring</strong>。</p>
+
+<p>继续搜索</p>
+
+<pre><code>extension_dir = "./"
+</code></pre>
+
+<p>将其改为</p>
+
+<pre><code>extension_dir = "C:/Webserver/php4/extensions"
+</code></pre>
+
+<p>保存文件退出。</p></li>
+<li><p>复制文件 <code>php4ts.dll</code> 到 <code>C:\Windows\system32</code> 文件夹下</p></li>
+<li><p>打开 <code>C:\Webserver\Apache2\conf\httpd.conf</code> 文件，搜索</p>
+
+<pre><code>#LoadModule ssl_module modules/mod_ssl.so
+</code></pre>
+
+<p>在下面一行添加</p>
+
+<pre><code>LoadModule php4_module C:/Webserver/php4/sapi/php4apache2.dll
+</code></pre>
+
+<p>继续搜索</p>
+
+<pre><code>AddType application/x-gzip .gz .tgz
+</code></pre>
+
+<p>下面添加</p>
+
+<pre><code>Addtype application/x-httpd-php .php
+</code></pre>
+
+<p>继续搜索</p>
+
+<pre><code>DirectoryIndex index.html index.html.var
+</code></pre>
+
+<p>修改为</p>
+
+<pre><code>DirectoryIndex index.html index.html.var index.php
+</code></pre>
+
+<p>保存文件并退出。</p></li>
+<li><p>重新启动 Apache 服务，打开一个命令窗口，依次输入</p>
+
+<pre><code>net stop apache2
+net start apache2
+</code></pre>
+
+<p>然后右键单击右下角的 Apache 的图标，选择 Open Apache Moniter，如果左下角显示了 PHP 的版本号，说明安装成功了。</p></li>
+<li><p>为了进一部验证，到 C:\Webserver\wwwroot 下建立一个空白文档 index.php，编辑它写入一下 PHP 代码：</p>
+
+<pre><code>&lt;?php phpinfo(); ?&gt;
+</code></pre>
+
+<p>在浏览器里输入 localhost，如果出现 PHP 的配置页面，则证明 PHP 安装成功了。</p></li>
+</ol>
+
+
+<h2>Step 4: 安装MySQL数据库</h2>
+
+<hr />
+
+<ol>
+<li>运行 MySQL 的安装文件，过程比较简单，中间一部选择安装路径到 <code>C:\Webserver\mysql</code></li>
+<li>安装完成后，去 <code>C:\Webserver\mysql\bin</code> 文件夹下，启动 <strong>winmysqladmin.exe</strong>。这是会弹出一个窗口，提示输入用户名密码。这个时候其实输入什么都可以继续，比如用户名 root，密码为空。</li>
+<li>如果正常的话，右下角任务栏会多出一个红绿灯的图标，并且绿灯亮。</li>
+</ol>
 
 ]]></content:encoded>
     </item>

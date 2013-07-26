@@ -3,10 +3,11 @@ layout: post
 title:  "Windows 下自动连接 NTU VPN（不用每次输入用户名密码）"
 date:   2012-04-14 21:17:59
 categories: 
-- notes 
+- Notes 
 tags:
-- vpn
-- ntu
+- VPN
+- NTU
+- Windows
 
 ---
 

@@ -3,10 +3,11 @@ layout: post
 title:  "OS X 下安装配置 Jekyll"
 date:   2013-07-25 08:17:59
 categories: 
-- notes 
+- Notes 
 tags:
-- jekyll
-- github
+- Jekyll
+- GitHub
+- OS X
 
 ---
 

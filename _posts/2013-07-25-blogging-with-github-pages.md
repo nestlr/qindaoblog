@@ -3,10 +3,10 @@ layout: post
 title:  "使用 GitHub Pages 建立博客"
 date:   2013-07-25 14:17:59
 categories: 
-- notes 
+- Notes 
 tags:
-- jekyll
-- github
+- Jekyll
+- GitHub
 
 ---
 

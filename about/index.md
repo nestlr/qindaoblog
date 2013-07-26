@@ -1,10 +1,10 @@
 ---
-title: About me
+title: About
 layout: page
 comments: no
 ---
 
-I'm Danny Li.
+I'm Danny Li. Born in Wuhan. Studying in Singapore.
 
 ----
 

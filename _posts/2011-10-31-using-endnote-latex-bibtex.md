@@ -3,10 +3,10 @@ layout: post
 title:  "使用 EndNote 和 LaTeX/BibTeX 建立论文的参考文献"
 date:   2011-10-31 21:17:59
 categories: 
-- notes 
+- Notes 
 tags:
-- endnote
-- latex
+- EndNote
+- LaTeX
 
 ---
 
@@ -31,10 +31,12 @@ tags:
 
 *  编写 LaTeX 代码；
 *  在结尾前加入 BibTeX 相关代码，如 
+
+		
 {% highlight latex %}
 \bibliographystyle{plain}
-\bibliography{mybib} % mybib是Endnote导出的文件名
-{% endhighlight latex %}
+\bibliography{mybib} % mybib是Endnote导出的文件名{% endhighlight latex %}
+
 *  正文中需要引用的地方就可以加入
 
 {% highlight latex %}
