@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="Danny Li" />
-    <title>IEEE 论文 LaTeX 模板 – LaTeX2e 类文件 | Danny Li</title>
+    <title>Mac OS X 文件夹本地化方法（汉化） | Danny Li</title>
     <link rel="shortcut icon" href="/favicon.ico">
     <link href="/feed/" rel="alternate" title="Danny Li" type="application/atom+xml" />
     <link rel="stylesheet" href="/media/css/style.css">
@@ -40,7 +40,7 @@
     <div id="container">
       <div id="main" role="main">
         <header>
-        <h1>IEEE 论文 LaTeX 模板 – LaTeX2e 类文件</h1>
+        <h1>Mac OS X 文件夹本地化方法（汉化）</h1>
         </header>
         <nav>
         <span><a title="home page" class="" href="/">Home</a></span>
@@ -51,7 +51,7 @@
         </nav>
         <article class="content">
         <section>
-2010-07-13
+2011-03-24
 
 <span class="categories">
  in 
@@ -63,38 +63,47 @@
 <span class="tags">
   tags:
   
-  <a href="/tags/#IEEE" title="IEEE">IEEE</a>&nbsp;
-  
-  <a href="/tags/#LaTeX" title="LaTeX">LaTeX</a>&nbsp;
-  
-  <a href="/tags/#paper" title="paper">paper</a>&nbsp;
+  <a href="/tags/#OS X" title="OS X">OS X</a>&nbsp;
   
 </span>
 
 </section>
 
 <section class="post">
-<p>研究人员如果把大量时间用来写论文上显然是不本末倒置。诚然论文对各位学者们十分重要，但其实说到底这些只是“虚荣”。</p>
+<p>经常看到 OS X 中的一些文件夹名称会随系统语言的更改而自动改变。有时候你想要某个英文的文件夹名称显示成对应的中文，但是又不想改文件夹名（可能由于里面安装了一些程序），是否能用类似的文件夹<strong>本地化 (Localization) </strong>方式来解决？</p>
 
-<p>写论文的很大一部分时间是用在排版上。特别是使用 LaTeX 这样的排版方式，大多数软件不是所见即所得的编辑工具，排版要下极大的功夫。其实现在的各种 LaTeX 排版工具都有“宏命令”，如果我们能有这样一个 IEEE 的“模板”，只关心文章内容而不是文章的界面和结构，这样定能事倍功半。</p>
+<p>有这么一个例子：如果使用默认路径安装了 Xcode，其程序文件会放在根目录下名为的 Developer 文件夹内。如果系统语言使用中文，你会发现在根目录下除了这个 Developer 文件夹，其他的的文件夹都是中文名称，如系统、应用程序、用户等。说明除了这几个文件夹使用了文件夹本地化。现在我们想把 Developer 的名字改成“开发者”，如何做到的呢？步骤如下：</p>
 
-<p><a href="http://mocha-java.uccs.edu/ieee/ieeeftp/ieeecls.pdf">这里</a>有一个 pdf 模板，打开看看和平时看的 paper 格式基本一模一样。这个 pdf 是用一个 TeX 模板生成的。</p>
+<h2>Step 1: 添加字符串至本地化配置文件</h2>
 
-<h3>LaTeX2e files for formatting IEEE papers</h3>
+<hr />
 
-<p>类文件 ieee.cls is well documented in the above paper. 这里提供这个文件以及大量的例子。</p>
+<ol>
+<li>打开 Finder，进入 /System/Library/CoreService/SystemFolderLocalizations/ (/系统/资源库/CoreService/SystemFolderLocalizations/)。</li>
+<li>进入 zh_CN.lproj 文件夹，看到下面有一个文件叫 SystemFolderLocalizations.strings。字符串就存放在这个文件里。</li>
+<li>修改文件权限。右键单击 SystemFolderLocalizations.strings，选“显示简介”，在“共享与权限”中添加自己的用户名并设置权限为读与写。</li>
+<li><p>用文本编辑软件打开该文件，添加以下一行：</p>
 
-<ul>
-<li><a href="http://mocha-java.uccs.edu/ieee/ieeeftp/ieee.cls">ieee.cls</a> 类文件</li>
-<li><a href="http://mocha-java.uccs.edu/ieee/ieeeftp/ieeecls.pdf">ieeecls.pdf</a> IEEE 论文：Specification of Common IEEE Styles，可以看成模板生成的 pdf 示例文件。</li>
-<li><a href="http://mocha-java.uccs.edu/ieee/ieeeftp/ieeecls.tex">ieeecls.tex</a> 以上文章 LaTeX2e 源文件。这个文件是很好的学习 LaTeX 材料，对照文章和源代码分析，效果很好。</li>
-<li><a href="http://mocha-java.uccs.edu/ieee/ieeeftp/ieeeskel.tex">ieeeskel.tex</a> IEEE 论文的简单框架。可以用这个开始写一篇新文章。</li>
-<li><a href="http://mocha-java.uccs.edu/ieee/ieeeftp/ieeefig.sty">ieeefig.sty</a> 图片格式。
-下载以上 .cls 和 .tex 文件到同一目录下，用任何 LaTeX 编辑器打开即可。</li>
-</ul>
+<p>"Developer" = "开发者";</p></li>
+<li><p>保存退出</p></li>
+</ol>
 
 
-<p>参考：<a href="http://mocha-java.uccs.edu/ieee/">http://mocha-java.uccs.edu/ieee/</a></p>
+<h2>Step 2: 添加 .localized 文件</h2>
+
+<hr />
+
+<p>如果一个文件夹要使用本地化，它的下面必须有一个名为 .localized 的文件隐藏文件。</p>
+
+<ol>
+<li>设置 Finder 中显示隐藏文件，参看<a href="http://dannyli.net/139/changing-macosx-default-settings-in-terminal#3" title="更改 Mac OS X 隐藏的默认设置的代码收集">这里</a>。</li>
+<li>复制任意一个文件夹中的 .localized 文件到 /Developer</li>
+<li>重启 Finder：按快捷键 Command + Option + Esc，调出“强制退出应用程序”窗口，结束 Finder 进程。
+再重新打开 Finder 看文件夹的名字已经变为刚才设置的“开发者”了。</li>
+</ol>
+
+
+<p>事实上还有另一种文件夹本地化的方法，主要用于应用程序的文件夹。可以参看下面这篇文章：<a href="http://www.chinamac.com/2009/1012/49609.html">http://www.chinamac.com/2009/1012/49609.html</a></p>
 
 </section>
 <section class="meta">
@@ -104,14 +113,14 @@
 </span>
 <span class="time">
   /
-  <time datetime="2010-07-13">2010-07-13</time>
+  <time datetime="2011-03-24">2011-03-24</time>
 </span>
 <br/>
 <br/>
 <span>
-	<a  href="http://dannyli.net/notes/windows-xp-apache-php4-mysql4/" class="pageNav"  >Previous</a>
+	<a  href="http://dannyli.net/notes/my-firefox-addons/" class="pageNav"  >Previous</a>
 	&nbsp;&nbsp;&nbsp;
-	<a  href="http://dannyli.net/notes/ieee-document-life-cycle/" class="pageNav"  >Next</a>
+	<a  href="http://dannyli.net/notes/change-modified-created-date-in-macosx/" class="pageNav"  >Next</a>
 </span>
 </section>
 
@@ -122,12 +131,12 @@ $(function(){
     var url = false;
         if (e.which == 37 || e.which == 74) {  // Left arrow and J
             
-        url = 'http://dannyli.net/notes/windows-xp-apache-php4-mysql4/';
+        url = 'http://dannyli.net/notes/my-firefox-addons/';
         
         }
         else if (e.which == 39 || e.which == 75) {  // Right arrow and K
             
-        url = 'http://dannyli.net/notes/ieee-document-life-cycle/';
+        url = 'http://dannyli.net/notes/change-modified-created-date-in-macosx/';
         
         }
         if (url) {
