@@ -7,13 +7,54 @@
     <title>Danny Li</title>
     <link href="http://log.dannyli.net/feed/" rel="self" />
     <link href="http://webfrogs.github.com" />
-    <lastBuildDate>2013-07-26T12:10:20+08:00</lastBuildDate>
+    <lastBuildDate>2013-07-26T15:01:20+08:00</lastBuildDate>
     <webMaster>ccf.developer@gmail.com</webMaster>
+    
+    <item>
+      <title>Jekyll 代码高亮利器 Pygments 配置</title>
+      <link href="http://log.dannyli.net/notes/pygments-config/"/>
+      <pubDate>2013-07-26T22:17:59+08:00</pubDate>
+      <author>Danny Li</author>
+      <guid>http://log.dannyli.net/notes/pygments-config</guid>
+      <content:encoded><![CDATA[<p><a href="http://pygments.org/">Pygments</a> 是 Jekyll 最常用的代码高亮程序。假设 Python 的 easy_install 已经可用，则执行</p>
+
+<pre><code>easy_install Pygments
+</code></pre>
+
+<p>安装 Pygments.</p>
+
+<p>Pygments 自带多种样式。在 Python 中用下面的命令可以查看所有样式列表：</p>
+
+<div class="highlight"><pre><code class="pycon"><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.styles</span> <span class="kn">import</span> <span class="n">STYLE_MAP</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">STYLE_MAP</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="go">[&#39;monokai&#39;, &#39;manni&#39;, &#39;rrt&#39;, &#39;perldoc&#39;, &#39;borland&#39;, &#39;colorful&#39;, &#39;default&#39;, &#39;murphy&#39;, &#39;vs&#39;, &#39;trac&#39;, &#39;tango&#39;, &#39;fruity&#39;, &#39;autumn&#39;, &#39;bw&#39;, &#39;emacs&#39;, &#39;vim&#39;, &#39;pastie&#39;, &#39;friendly&#39;, &#39;native&#39;]</span>
+</code></pre></div>
+
+
+<p>关于不同样式，可以在 <a href="http://pygments.org/demo">Demo</a> 页面选择一个 demo，再在右边样式列表中选择不同样式查看效果。</p>
+
+<p>下一步是生成所需的 CSS 文件。假设我们想使用 <code>friendly</code> 样式，则在 Terminal 或 cmd 进入 CSS 所在路径下执行</p>
+
+<pre><code>pygmentize -S friendly -f html &gt; highlight.css
+</code></pre>
+
+<p>则产生一个 <code>highlight.css</code> 文件。</p>
+
+<p>Jekyll 中使用 Pygments，假设一段代码需要被高亮，则使用</p>
+
+<pre><code>{\% highlight shortname \%}
+    代码内容
+{\% endhighlight shortname \%}
+</code></pre>
+
+<p>注意要把上面%前面的 \ 去掉。name 是不同语言对应的短名称，可以在<a href="http://pygments.org/docs/lexers/">这里</a>查看。</p>
+]]></content:encoded>
+    </item>
     
     <item>
       <title>Windows 安装 Jekyll 若干问题的解决</title>
       <link href="http://log.dannyli.net/notes/fix-problems-of-jekyll-on-windows/"/>
-      <pubDate>2013-07-27T05:17:59+08:00</pubDate>
+      <pubDate>2013-07-26T17:17:59+08:00</pubDate>
       <author>Danny Li</author>
       <guid>http://log.dannyli.net/notes/fix-problems-of-jekyll-on-windows</guid>
       <content:encoded><![CDATA[<p>Jekyll 官方网站是以外链的形式给出的 <a href="http://www.madhur.co.in/blog/2011/09/01/runningjekyllwindows.html">Windows 下安装 Jekyll 方法</a>。这个方法总体上是可行的，但是这篇文章写于 2011 年，并且没有考虑中文环境下的问题，所以安装过程中会碰到种种问题。</p>

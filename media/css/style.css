@@ -24,7 +24,23 @@ p{padding:.5em 0;}
 li{padding:.2em 0;}
 ol,ul{list-style-position:inside;}
 ol ul, ul ol, ul ul, ol ol {margin-left:1em;}
-pre code{margin:1em 0;font-size:13px;line-height:1.6;display:block;overflow:auto;}
+pre code{padding:3px;font-size:13px;line-height:1.6;display:block;overflow:auto;}
+
+code{background-color: #f0f0f0;}
+
+pre {
+border: 1px solid #ccc;
+font-family: Bitstream Vera Sans Mono,monospace;
+padding:5px;
+background-color: #f0f0f0;
+-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;	
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
+
+.highlight pre {border-top: 1px solid #ccc;
+border-bottom: 1px solid #ccc}
 blockquote{display:block;text-align:justify;border-left:4px solid #eeeeee;}
 blockquote{margin:1em 0em;padding-left:1.5em;}
 blockquote p{margin:0;padding:.5em 0;}
@@ -40,6 +56,9 @@ blockquote p{margin:0;padding:.5em 0;}
 
 }
 
+h2 {margin-top:10px;}
+h3 {margin-top:10px;}
+
 .listing-item time{color:#999999;}
 .listing-seperator{font-weight:bold;}
 .meta{text-align:right;font-size:12px;}
@@ -54,8 +73,8 @@ h1{font-family:"Cuprum","Hiragino Sans GB","Microsoft YaHei",sans-serif;font-siz
 h2{font-family:"Cuprum","Hiragino Sans GB","Microsoft YaHei",sans-serif;font-size:1.4em;color:#111;}
 h3{font-family:"Cuprum","Hiragino Sans GB","Microsoft YaHei",sans-serif;font-size:1.2em;color:#222;}
 h4{font-family:"Cuprum","Hiragino Sans GB","Microsoft YaHei",sans-serif;font-size:1em;color:#333;}
-pre,code{font-family:Menlo,"Andale Mono",Consolas,"Courier New",Monaco,monospace;font-size:13px;}
-code{background-color:#D0D0D0;}
+pre,code{font-family:Menlo,"Andale Mono",Consolas,"Courier New",Monaco
+code{background-color:transparent;},monospace;font-size:13px;}
 embed,object,iframe{display:block;margin:4px auto;}
 .gist{font-size: 12px;line-height:1.6;}
 

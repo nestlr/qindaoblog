@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="Danny Li" />
-    <title>Windows 安装 Jekyll 若干问题的解决 | Danny Li</title>
+    <title>Jekyll 代码高亮利器 Pygments 配置 | Danny Li</title>
     <link rel="shortcut icon" href="/favicon.ico">
     <link href="/feed/" rel="alternate" title="Danny Li" type="application/atom+xml" />
     <link rel="stylesheet" href="/media/css/style.css">
@@ -40,7 +40,7 @@
     <div id="container">
       <div id="main" role="main">
         <header>
-        <h1>Windows 安装 Jekyll 若干问题的解决</h1>
+        <h1>Jekyll 代码高亮利器 Pygments 配置</h1>
         </header>
         <nav>
         <span><a title="home page" class="" href="/">Home</a></span>
@@ -51,67 +51,38 @@
         </nav>
         <article class="content">
         <section class="post">
-<p>Jekyll 官方网站是以外链的形式给出的 <a href="http://www.madhur.co.in/blog/2011/09/01/runningjekyllwindows.html">Windows 下安装 Jekyll 方法</a>。这个方法总体上是可行的，但是这篇文章写于 2011 年，并且没有考虑中文环境下的问题，所以安装过程中会碰到种种问题。</p>
+<p><a href="http://pygments.org/">Pygments</a> 是 Jekyll 最常用的代码高亮程序。假设 Python 的 easy_install 已经可用，则执行</p>
 
-<hr />
-
-<p>一，软件版本问题。建议在 Windwos 7 中下载安装以下版本 Ruby 和 DevKit：</p>
-
-<ul>
-<li><a href="http://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-1.9.3-p448.exe?direct">Ruby 1.9.3-p448</a></li>
-<li><a href="https://github.com/downloads/oneclick/rubyinstaller/DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe">DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe</a></li>
-</ul>
-
-
-<p>2.0 版本 Ruby 似乎会碰到一些问题。文章作者给出的一个便携版的 Jekyll 也挺坑爹，400+ M 保存在 Dropbox 上，下载解压花了我 1 个多小时，安装还不成功。主要就是因为他使用的是 Ruby 2.0。不用尝试这个了。</p>
-
-<hr />
-
-<p>二，运行 <code>jekyll serve</code> 时显示</p>
-
-<pre><code>Liquid Exception: No such file or directory - /bin/sh in ...
+<pre><code>easy_install Pygments
 </code></pre>
 
-<p>这个是语法高亮插件 Pygments 引起。解决方法是卸载最新版本的 Pygments （0.5.1+），重新安装 0.5.0 版本的 Pygments:</p>
+<p>安装 Pygments.</p>
 
-<pre><code>gem uninstall pygments.rb --version "=0.5.2"
-gem install pygments.rb --version "=0.5.0"
+<p>Pygments 自带多种样式。在 Python 中用下面的命令可以查看所有样式列表：</p>
+
+<div class="highlight"><pre><code class="pycon"><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pygments.styles</span> <span class="kn">import</span> <span class="n">STYLE_MAP</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">STYLE_MAP</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="go">[&#39;monokai&#39;, &#39;manni&#39;, &#39;rrt&#39;, &#39;perldoc&#39;, &#39;borland&#39;, &#39;colorful&#39;, &#39;default&#39;, &#39;murphy&#39;, &#39;vs&#39;, &#39;trac&#39;, &#39;tango&#39;, &#39;fruity&#39;, &#39;autumn&#39;, &#39;bw&#39;, &#39;emacs&#39;, &#39;vim&#39;, &#39;pastie&#39;, &#39;friendly&#39;, &#39;native&#39;]</span>
+</code></pre></div>
+
+
+<p>关于不同样式，可以在 <a href="http://pygments.org/demo">Demo</a> 页面选择一个 demo，再在右边样式列表中选择不同样式查看效果。</p>
+
+<p>下一步是生成所需的 CSS 文件。假设我们想使用 <code>friendly</code> 样式，则在 Terminal 或 cmd 进入 CSS 所在路径下执行</p>
+
+<pre><code>pygmentize -S friendly -f html &gt; highlight.css
 </code></pre>
 
-<hr />
+<p>则产生一个 <code>highlight.css</code> 文件。</p>
 
-<p>三，和第二个问题类似，提示</p>
+<p>Jekyll 中使用 Pygments，假设一段代码需要被高亮，则使用</p>
 
-<pre><code>Liquid Exception: No such file or directory - python ...
+<pre><code>{\% highlight shortname \%}
+    代码内容
+{\% endhighlight shortname \%}
 </code></pre>
 
-<p>原因是没将 Python 的路径添加为 PATH 环境变量。</p>
-
-<hr />
-
-<p>四，运行 <code>jekyll serve</code> 不成功，显示</p>
-
-<pre><code> ... invalid byte sequence in GBK  ...
-</code></pre>
-
-<p>这个是中文编码引起的问题。一旦 post 中有中文字符就会出现这样的问题。当然这个是 Windows 下特有的问题。解决方法是将 <code>C:/Ruby193/lib/ruby/gems/1.9.1/gems/jekyll-0.11.2/lib/jekyll/convertible.rb</code> 文件 （路径可能与此不同）中的</p>
-
-<pre><code>self.content = File.read(File.join(base, name)) 
-</code></pre>
-
-<p>改为</p>
-
-<pre><code>self.content = File.read(File.join(base, name), :encoding =&gt; "utf-8")
-</code></pre>
-
-<h3>References</h3>
-
-<ul>
-<li><a href="http://www.madhur.co.in/blog/2011/09/01/runningjekyllwindows.html">http://www.madhur.co.in/blog/2011/09/01/runningjekyllwindows.html</a></li>
-<li><a href="http://stackoverflow.com/questions/17364028/jekyll-on-windows-pygments-not-working">http://stackoverflow.com/questions/17364028/jekyll-on-windows-pygments-not-working</a></li>
-<li><a href="http://chxt6896.github.io/blog/2011/12/01/blog-pygments.html">http://chxt6896.github.io/blog/2011/12/01/blog-pygments.html</a></li>
-</ul>
-
+<p>注意要把上面%前面的 \ 去掉。name 是不同语言对应的短名称，可以在<a href="http://pygments.org/docs/lexers/">这里</a>查看。</p>
 
 </section>
 <section class="meta">
@@ -119,9 +90,9 @@ gem install pygments.rb --version "=0.5.0"
 <br/>
 <br/>
 <span>
-	<a  href="http://log.dannyli.net/notes/blogging-with-github-pages/" class="pageNav"  >Previous</a>
+	<a  href="http://log.dannyli.net/notes/fix-problems-of-jekyll-on-windows/" class="pageNav"  >Previous</a>
 	&nbsp;&nbsp;&nbsp;
-	<a  href="http://log.dannyli.net/notes/pygments-config/" class="pageNav"  >Next</a>
+	<a   class="pageNavInvalid"  >Next</a>
 </span>
 <hr>
 <span class="author">
@@ -149,7 +120,7 @@ gem install pygments.rb --version "=0.5.0"
   
   <a href="/tags/#jekyll" title="jekyll">jekyll</a>&nbsp;
   
-  <a href="/tags/#windows" title="windows">windows</a>&nbsp;
+  <a href="/tags/#pygments" title="pygments">pygments</a>&nbsp;
   
 </span>
 
@@ -162,13 +133,11 @@ $(function(){
     var url = false;
         if (e.which == 37 || e.which == 74) {  // Left arrow and J
             
-        url = 'http://log.dannyli.net/notes/blogging-with-github-pages/';
+        url = 'http://log.dannyli.net/notes/fix-problems-of-jekyll-on-windows/';
         
         }
         else if (e.which == 39 || e.which == 75) {  // Right arrow and K
             
-        url = 'http://log.dannyli.net/notes/pygments-config/';
-        
         }
         if (url) {
             window.location = url;

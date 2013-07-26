@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Windows 安装 Jekyll 若干问题的解决"
-date:   2013-07-26 21:17:59
+date:   2013-07-26 09:17:59
 categories: 
 - notes 
 tags:
