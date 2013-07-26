@@ -5,17 +5,34 @@
   >
   <channel>
     <title>Danny Li</title>
-    <link href="http://log.dannyli.net/feed/" rel="self" />
+    <link href="http://dannyli.net/feed/" rel="self" />
     <link href="http://webfrogs.github.com" />
-    <lastBuildDate>2013-07-26T18:03:01+08:00</lastBuildDate>
+    <lastBuildDate>2013-07-26T19:15:44+08:00</lastBuildDate>
     <webMaster>ccf.developer@gmail.com</webMaster>
     
     <item>
+      <title>Escape Liquid 模板标签的方法</title>
+      <link href="http://dannyli.net/notes/escape-liquid-tags/"/>
+      <pubDate>2013-07-27T00:17:59+08:00</pubDate>
+      <author>Danny Li</author>
+      <guid>http://dannyli.net/notes/escape-liquid-tags</guid>
+      <content:encoded><![CDATA[<p>Jekyll 网站模板使用的的 Liquid 模板语言。当网页中要展示某段 Liquid 模板代码本身时，需要使用 raw 标签进行 escape：</p>
+
+<pre><code>{ % raw % } 
+    Liquid 代码内容
+{ % endraw % }
+</code></pre>
+
+<p>但是，如何 escape 带有 raw 标签的代码？比如上面这个，我只能把百分号和括号写开，不然无法编译成功。</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
       <title>Jekyll 代码高亮利器 Pygments 配置</title>
-      <link href="http://log.dannyli.net/notes/pygments-config/"/>
+      <link href="http://dannyli.net/notes/pygments-config/"/>
       <pubDate>2013-07-26T22:17:59+08:00</pubDate>
       <author>Danny Li</author>
-      <guid>http://log.dannyli.net/notes/pygments-config</guid>
+      <guid>http://dannyli.net/notes/pygments-config</guid>
       <content:encoded><![CDATA[<p><a href="http://pygments.org/">Pygments</a> 是 Jekyll 最常用的代码高亮程序。假设 Python 的 easy_install 已经可用，则执行</p>
 
 <pre><code>easy_install Pygments
@@ -40,23 +57,23 @@
 
 <p>则产生一个 <code>highlight.css</code> 文件。</p>
 
-<p>Jekyll 中使用 Pygments，假设一段代码需要被高亮，则使用</p>
+<p>下面介绍如何在 Jekyll 中使用 Pygments，假设一段代码需要被高亮，则在模板里使用以下 <a href="http://liquidmarkup.org/">Liquid</a> 代码</p>
 
-<pre><code>{\% highlight shortname \%}
+<pre><code>{% highlight shortname %}
     代码内容
-{\% endhighlight shortname \%}
+{% endhighlight shortname %}
 </code></pre>
 
-<p>注意要把上面%前面的 \ 去掉。name 是不同语言对应的短名称，可以在<a href="http://pygments.org/docs/lexers/">这里</a>查看。</p>
+<p>name 是不同语言对应的短名称，可以在<a href="http://pygments.org/docs/lexers/">这里</a>查看。</p>
 ]]></content:encoded>
     </item>
     
     <item>
       <title>Windows 安装 Jekyll 若干问题的解决</title>
-      <link href="http://log.dannyli.net/notes/fix-problems-of-jekyll-on-windows/"/>
+      <link href="http://dannyli.net/notes/fix-problems-of-jekyll-on-windows/"/>
       <pubDate>2013-07-26T17:17:59+08:00</pubDate>
       <author>Danny Li</author>
-      <guid>http://log.dannyli.net/notes/fix-problems-of-jekyll-on-windows</guid>
+      <guid>http://dannyli.net/notes/fix-problems-of-jekyll-on-windows</guid>
       <content:encoded><![CDATA[<p>Jekyll 官方网站是以外链的形式给出的 <a href="http://www.madhur.co.in/blog/2011/09/01/runningjekyllwindows.html">Windows 下安装 Jekyll 方法</a>。这个方法总体上是可行的，但是这篇文章写于 2011 年，并且没有考虑中文环境下的问题，所以安装过程中会碰到种种问题。</p>
 
 <hr />
@@ -125,10 +142,10 @@ gem install pygments.rb --version "=0.5.0"
     
     <item>
       <title>使用 GitHub Pages 建立博客</title>
-      <link href="http://log.dannyli.net/notes/blogging-with-github-pages/"/>
+      <link href="http://dannyli.net/notes/blogging-with-github-pages/"/>
       <pubDate>2013-07-25T22:17:59+08:00</pubDate>
       <author>Danny Li</author>
-      <guid>http://log.dannyli.net/notes/blogging-with-github-pages</guid>
+      <guid>http://dannyli.net/notes/blogging-with-github-pages</guid>
       <content:encoded><![CDATA[<h2>GitHub Pages</h2>
 
 <hr />
@@ -204,10 +221,10 @@ gem install pygments.rb --version "=0.5.0"
     
     <item>
       <title>OS X 下安装配置 Jekyll</title>
-      <link href="http://log.dannyli.net/notes/osx-jekyll/"/>
+      <link href="http://dannyli.net/notes/osx-jekyll/"/>
       <pubDate>2013-07-25T16:17:59+08:00</pubDate>
       <author>Danny Li</author>
-      <guid>http://log.dannyli.net/notes/osx-jekyll</guid>
+      <guid>http://dannyli.net/notes/osx-jekyll</guid>
       <content:encoded><![CDATA[<h2>Xcode</h2>
 
 <hr />
@@ -292,10 +309,10 @@ jekyll serve --watch
     
     <item>
       <title>Windows 下自动连接 NTU VPN（不用每次输入用户名密码）</title>
-      <link href="http://log.dannyli.net/notes/connect-ntu-vpn-automatically-in-windows/"/>
+      <link href="http://dannyli.net/notes/connect-ntu-vpn-automatically-in-windows/"/>
       <pubDate>2012-04-15T05:17:59+08:00</pubDate>
       <author>Danny Li</author>
-      <guid>http://log.dannyli.net/notes/connect-ntu-vpn-automatically-in-windows</guid>
+      <guid>http://dannyli.net/notes/connect-ntu-vpn-automatically-in-windows</guid>
       <content:encoded><![CDATA[<p>在 Windows 下连接 NTU 的 VPN 一般使用 Juniper Network 的 Network Connection 程序。每次连接都要手动输入用户名密码，非常不方便。今天研究了一下通过命令行连接 NTU VPN。通过命令行可以实现在桌面创建一个快捷方式，双击图标直接连接 NTU VPN。</p>
 
 <p>假设已经安装好了 NTU 官方提供的<a href="http://www.ntu.edu.sg/cits/itnetworking/remoteaccess/Pages/quickstartguide.aspx#winvpn">SSL VPN 程序</a> (Juniper Networks - Network Connection)。</p>
@@ -321,10 +338,10 @@ jekyll serve --watch
     
     <item>
       <title>使用 EndNote 和 LaTeX/BibTeX 建立论文的参考文献</title>
-      <link href="http://log.dannyli.net/notes/using-endnote-latex-bibtex/"/>
+      <link href="http://dannyli.net/notes/using-endnote-latex-bibtex/"/>
       <pubDate>2011-11-01T05:17:59+08:00</pubDate>
       <author>Danny Li</author>
-      <guid>http://log.dannyli.net/notes/using-endnote-latex-bibtex</guid>
+      <guid>http://dannyli.net/notes/using-endnote-latex-bibtex</guid>
       <content:encoded><![CDATA[<p><a href="http://www.endnote.com/">EndNote</a> 是整理论文参考文献 (citation) 的绝佳工具。如果能把 EndNote 与 LaTeX 结合使用是再好不过了。这里介绍一种将 EndNote 内的书目导出为 LaTeX 可用的 BibTeX 格式的方法。</p>
 
 <p>这里使用的软件版本为 EndNote <del>X4</del> X6。NTU 的学生可以在<a href="http://www3.ntu.edu.sg/lib/ISD/EndNote/License.htm">这里</a>下载免费使用。假设 EndNote 里已经添加了所需的参考文献信息。很多数据库都自带导入 citation 到 EndNote 的功能，这里就不详细介绍。</p>
@@ -380,10 +397,10 @@ jekyll serve --watch
     
     <item>
       <title>我所用的 Google Chrome 扩展插件</title>
-      <link href="http://log.dannyli.net/notes/my-google-chrome-extensions/"/>
+      <link href="http://dannyli.net/notes/my-google-chrome-extensions/"/>
       <pubDate>2011-10-23T22:15:59+08:00</pubDate>
       <author>Danny Li</author>
-      <guid>http://log.dannyli.net/notes/my-google-chrome-extensions</guid>
+      <guid>http://dannyli.net/notes/my-google-chrome-extensions</guid>
       <content:encoded><![CDATA[<p>全面转向 Google Chrome 后，一个明显的好处就是由于内建的书签同步（已经支持设置、搜索引擎同步），高效的搜索等功能可以明显减少插件的数量。下面是我常用的 Chrome 扩展插件 (extensions)。</p>
 
 <h3>必装</h3>
@@ -430,10 +447,10 @@ jekyll serve --watch
     
     <item>
       <title>我所用的 Firefox 插件</title>
-      <link href="http://log.dannyli.net/notes/my-firefox-addons/"/>
+      <link href="http://dannyli.net/notes/my-firefox-addons/"/>
       <pubDate>2011-03-23T22:17:59+08:00</pubDate>
       <author>Danny Li</author>
-      <guid>http://log.dannyli.net/notes/my-firefox-addons</guid>
+      <guid>http://dannyli.net/notes/my-firefox-addons</guid>
       <content:encoded><![CDATA[<p>今天 <a href="http://blog.mozilla.com/blog/2011/03/22/mozilla-launches-firefox-4-and-delivers-a-fast-sleek-and-customizable-browsing-experience-to-more-than-400-million-users-worldwide-2/">Mozilla 终于放出了 Firefox 4 正式版</a>。尽管越来越多的人转向了 Google Chrome，但是 Firefox 一直都还是我的首选。我如此“顽固”是有原因的：</p>
 
 <ol>
@@ -522,10 +539,10 @@ jekyll serve --watch
     
     <item>
       <title>IEEE 论文 LaTeX 模板 – LaTeX2e 类文件</title>
-      <link href="http://log.dannyli.net/notes/latex-template-for-ieee-paper/"/>
+      <link href="http://dannyli.net/notes/latex-template-for-ieee-paper/"/>
       <pubDate>2010-07-13T22:17:59+08:00</pubDate>
       <author>Danny Li</author>
-      <guid>http://log.dannyli.net/notes/latex-template-for-ieee-paper</guid>
+      <guid>http://dannyli.net/notes/latex-template-for-ieee-paper</guid>
       <content:encoded><![CDATA[<p>研究人员如果把大量时间用来写论文上显然是不本末倒置。诚然论文对各位学者们十分重要，但其实说到底这些只是“虚荣”。</p>
 
 <p>写论文的很大一部分时间是用在排版上。特别是使用 LaTeX 这样的排版方式，大多数软件不是所见即所得的编辑工具，排版要下极大的功夫。其实现在的各种 LaTeX 排版工具都有“宏命令”，如果我们能有这样一个 IEEE 的“模板”，只关心文章内容而不是文章的界面和结构，这样定能事倍功半。</p>
@@ -547,148 +564,6 @@ jekyll serve --watch
 
 
 <p>参考：<a href="http://mocha-java.uccs.edu/ieee/">http://mocha-java.uccs.edu/ieee/</a></p>
-]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>Windows XP 下搭建 Apache + PHP 4 + MySQL 4 环境</title>
-      <link href="http://log.dannyli.net/notes/windows-xp-apache-php4-mysql4/"/>
-      <pubDate>2010-05-03T22:17:59+08:00</pubDate>
-      <author>Danny Li</author>
-      <guid>http://log.dannyli.net/notes/windows-xp-apache-php4-mysql4</guid>
-      <content:encoded><![CDATA[<p>这个年头估计没人写这种旧版本的 Web 服务器搭建教程了。这里只是做个存档，由于我几年前的数据还没转换成新的版本，所以得搭建老的平台进行数据转换。</p>
-
-<p>在开始之前，首先下载到以下组件的相应版本：</p>
-
-<ul>
-<li>Apache HTTP Server2.063</li>
-<li>PHP 4.4.9</li>
-<li>MySQL 4.026</li>
-<li>phpMyAdmin 2.0 以上</li>
-</ul>
-
-
-<h2>Step 1: 安装 Apache HTTP Server</h2>
-
-<hr />
-
-<ol>
-<li>双击 Apache 的安装文件 apache_2.0.63-win32-x86-openssl-0.9.7m.msi；</li>
-<li>点 Next 按钮；</li>
-<li>选择同意 Agreement，点 Next 按钮；</li>
-<li>再点 Next 按钮；</li>
-<li>在 Server Information 对话框，要填写域名和服务器名等信息。如果是本地安装，一般在 Network Domain 和 Server Name 都填 localhost。下面的 Email 随便填把也没什么用。点 Next；</li>
-<li>Setup Type，选 Custom，Next；</li>
-<li>安装地址，为了管理方便，统一把程序都安装到 <code>C:\Webserver</code> 目录下。这里填 <code>C:\Webserver</code>，之后 Apache 会被安装到 <code>C:\Webserver\Apache2</code> 目录下；</li>
-<li>点 Next，再点 Install 开始安装。</li>
-<li>验证 Apache 是否安装成功：打开浏览器在地址栏里输入 <code>localhost</code>，如果看到提示安装成功的页面就对了。</li>
-</ol>
-
-
-<h2>Step 2: 配置 Apache</h2>
-
-<hr />
-
-<ol>
-<li>打开 <code>C:\Webserver\Apache2\conf\httpd.conf</code> 文件，这个是 Apache 的主要配置文件。</li>
-<li><p>搜索字符串</p>
-
-<pre><code>C:/Webserver/Apache2/htdocs
-</code></pre>
-
-<p>这个定义根目录的位置，文件一共有两个地方，把它们都改为</p>
-
-<pre><code>C:/Webserver/wwwroot
-</code></pre></li>
-<li><p>在 <code>C:\Webserver</code> 下手动新建一个 wwwroot 文件夹。</p></li>
-</ol>
-
-
-<h2>Step 3: 安装与配置 PHP</h2>
-
-<hr />
-
-<p>安装了这个 Apache 才能对 .php 网页进行解析。</p>
-
-<ol>
-<li>解压 PHP 安装包到 <code>C:\Webserver</code>下，把 php 文件夹的名字改成 php4。这样所有的 PHP 程序文件都位于 <code>C:\Webserver\php4</code> 下。</li>
-<li>复制 <code>php.ini-dist</code> 文件到 <code>C:\Windows</code> 下，将其重命名为 <code>php.ini</code></li>
-<li><p>打开 php.ini，搜索</p>
-
-<pre><code>;extension=php_mbstring.dll
-</code></pre>
-
-<p>可以看到有很多的 extension 前面被分号注释掉了，要启用哪一项就把前面的分号去掉。这里启用 <strong>gd2</strong> 库（图形）和 <strong>mbstring</strong>。</p>
-
-<p>继续搜索</p>
-
-<pre><code>extension_dir = "./"
-</code></pre>
-
-<p>将其改为</p>
-
-<pre><code>extension_dir = "C:/Webserver/php4/extensions"
-</code></pre>
-
-<p>保存文件退出。</p></li>
-<li><p>复制文件 <code>php4ts.dll</code> 到 <code>C:\Windows\system32</code> 文件夹下</p></li>
-<li><p>打开 <code>C:\Webserver\Apache2\conf\httpd.conf</code> 文件，搜索</p>
-
-<pre><code>#LoadModule ssl_module modules/mod_ssl.so
-</code></pre>
-
-<p>在下面一行添加</p>
-
-<pre><code>LoadModule php4_module C:/Webserver/php4/sapi/php4apache2.dll
-</code></pre>
-
-<p>继续搜索</p>
-
-<pre><code>AddType application/x-gzip .gz .tgz
-</code></pre>
-
-<p>下面添加</p>
-
-<pre><code>Addtype application/x-httpd-php .php
-</code></pre>
-
-<p>继续搜索</p>
-
-<pre><code>DirectoryIndex index.html index.html.var
-</code></pre>
-
-<p>修改为</p>
-
-<pre><code>DirectoryIndex index.html index.html.var index.php
-</code></pre>
-
-<p>保存文件并退出。</p></li>
-<li><p>重新启动 Apache 服务，打开一个命令窗口，依次输入</p>
-
-<pre><code>net stop apache2
-net start apache2
-</code></pre>
-
-<p>然后右键单击右下角的 Apache 的图标，选择 Open Apache Moniter，如果左下角显示了 PHP 的版本号，说明安装成功了。</p></li>
-<li><p>为了进一部验证，到 C:\Webserver\wwwroot 下建立一个空白文档 index.php，编辑它写入一下 PHP 代码：</p>
-
-<pre><code>&lt;?php phpinfo(); ?&gt;
-</code></pre>
-
-<p>在浏览器里输入 localhost，如果出现 PHP 的配置页面，则证明 PHP 安装成功了。</p></li>
-</ol>
-
-
-<h2>Step 4: 安装MySQL数据库</h2>
-
-<hr />
-
-<ol>
-<li>运行 MySQL 的安装文件，过程比较简单，中间一部选择安装路径到 <code>C:\Webserver\mysql</code></li>
-<li>安装完成后，去 <code>C:\Webserver\mysql\bin</code> 文件夹下，启动 <strong>winmysqladmin.exe</strong>。这是会弹出一个窗口，提示输入用户名密码。这个时候其实输入什么都可以继续，比如用户名 root，密码为空。</li>
-<li>如果正常的话，右下角任务栏会多出一个红绿灯的图标，并且绿灯亮。</li>
-</ol>
-
 ]]></content:encoded>
     </item>
     

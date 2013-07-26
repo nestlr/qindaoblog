@@ -32,10 +32,12 @@ Pygments 自带多种样式。在 Python 中用下面的命令可以查看所有
 
 则产生一个 `highlight.css` 文件。
 
-Jekyll 中使用 Pygments，假设一段代码需要被高亮，则使用
-
-	{\% highlight shortname \%}
+下面介绍如何在 Jekyll 中使用 Pygments，假设一段代码需要被高亮，则在模板里使用以下 [Liquid](http://liquidmarkup.org/) 代码
+	
+	{% raw %} 
+	{% highlight shortname %}
 		代码内容
-	{\% endhighlight shortname \%}
+	{% endhighlight shortname %}
+	{% endraw %}
 
-注意要把上面%前面的 \ 去掉。name 是不同语言对应的短名称，可以在[这里](http://pygments.org/docs/lexers/)查看。
+name 是不同语言对应的短名称，可以在[这里](http://pygments.org/docs/lexers/)查看。
