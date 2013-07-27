@@ -7,8 +7,58 @@
     <title>Danny Li</title>
     <link href="http://dannyli.net/feed/" rel="self" />
     <link href="http://webfrogs.github.com" />
-    <lastBuildDate>2013-07-28T00:20:18+08:00</lastBuildDate>
+    <lastBuildDate>2013-07-28T01:01:42+08:00</lastBuildDate>
     <webMaster>ccf.developer@gmail.com</webMaster>
+    
+    <item>
+      <title>不使用插件为 Jekyll 添加 Sitemap</title>
+      <link href="http://dannyli.net/notes/jekyll-sitemap-without-plugin/"/>
+      <pubDate>2013-07-27T22:17:59+08:00</pubDate>
+      <author>Danny Li</author>
+      <guid>http://dannyli.net/notes/jekyll-sitemap-without-plugin</guid>
+      <content:encoded><![CDATA[<p>将下面的代码保存为 sitemap.xml 文件保存在本地站点 repo 根目录下，编译后 push 到 GitHub 即可。</p>
+
+<div class="highlight"><pre><code class="django"><span class="x">---</span>
+<span class="x">layout: default</span>
+<span class="x">sitemap:</span>
+<span class="x">    priority: 0.7</span>
+<span class="x">    changefreq: monthly</span>
+<span class="x">    lastmod: 2013-07-27T12:49:30-05:00</span>
+<span class="x">---</span>
+<span class="x"> </span>
+<span class="x">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="x">&lt;urlset xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd&quot; xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;</span>
+
+<span class="x">  </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">post</span> <span class="k">in</span> <span class="nv">site.posts</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">  &lt;url&gt;</span>
+<span class="x">    &lt;loc&gt;</span><span class="cp">{{</span> <span class="nv">site.baseurl</span> <span class="cp">}}{{</span> <span class="nv">post.url</span> <span class="cp">}}</span><span class="x">&lt;/loc&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">post.lastmod</span> <span class="o">==</span> <span class="nv">null</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;lastmod&gt;</span><span class="cp">{{</span> <span class="nv">post.date</span> <span class="o">|</span> <span class="nf">date_to_xmlschema</span> <span class="cp">}}</span><span class="x">&lt;/lastmod&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;lastmod&gt;</span><span class="cp">{{</span> <span class="nv">post.lastmod</span> <span class="o">|</span> <span class="nf">date_to_xmlschema</span> <span class="cp">}}</span><span class="x">&lt;/lastmod&gt;</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;changefreq&gt;weekly&lt;/changefreq&gt;</span>
+<span class="x">    &lt;priority&gt;1.0&lt;/priority&gt;</span>
+<span class="x">  &lt;/url&gt;</span>
+<span class="x">  </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">  </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">page</span> <span class="k">in</span> <span class="nv">site.pages</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">  </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">page.sitemap</span> <span class="p">!</span><span class="o">=</span> <span class="nv">null</span> <span class="k">and</span> <span class="nv">page.sitemap</span> <span class="p">!</span><span class="o">=</span> <span class="nv">empty</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">  &lt;url&gt;</span>
+<span class="x">    &lt;loc&gt;</span><span class="cp">{{</span> <span class="nv">site.baseurl</span> <span class="cp">}}{{</span> <span class="nv">page.url</span> <span class="cp">}}</span><span class="x">&lt;/loc&gt;</span>
+<span class="x">    &lt;lastmod&gt;</span><span class="cp">{{</span> <span class="nv">page.sitemap.lastmod</span> <span class="o">|</span> <span class="nf">date_to_xmlschema</span> <span class="cp">}}</span><span class="x">&lt;/lastmod&gt;</span>
+<span class="x">    &lt;changefreq&gt;</span><span class="cp">{{</span> <span class="nv">page.sitemap.changefreq</span> <span class="cp">}}</span><span class="x">&lt;/changefreq&gt;</span>
+<span class="x">    &lt;priority&gt;</span><span class="cp">{{</span> <span class="nv">page.sitemap.priority</span> <span class="cp">}}</span><span class="x">&lt;/priority&gt;</span>
+<span class="x">  &lt;/url&gt;</span>
+<span class="x">  </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">  </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
+
+<span class="x">&lt;/urlset&gt;</span>
+</code></pre></div>
+
+
+<p>参考：<a href="http://davidensinger.com/2013/03/generating-a-sitemap-in-jekyll-without-a-plugin/">http://davidensinger.com/2013/03/generating-a-sitemap-in-jekyll-without-a-plugin/</a></p>
+]]></content:encoded>
+    </item>
     
     <item>
       <title>Escape Liquid 模板标签的方法</title>
@@ -511,55 +561,6 @@ jekyll serve --watch
 
 
 <p>由于 Chrome 不是开源软件，Chrome 版本的 Flashgot 和 DownThemAll 无法实现 Firefox 上的诸多强大功能。这也是我有时还在使用 Firefox 的原因。另外，插件太多会导致 Chrome 启动速度减慢，这也是值得注意的。</p>
-]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>Mac OS X 下修改文件属性：创建时间、修改时间</title>
-      <link href="http://dannyli.net/notes/change-modified-created-date-in-macosx/"/>
-      <pubDate>2011-09-12T22:17:59+08:00</pubDate>
-      <author>Danny Li</author>
-      <guid>http://dannyli.net/notes/change-modified-created-date-in-macosx</guid>
-      <content:encoded><![CDATA[<h2>格式</h2>
-
-<hr />
-
-<ul>
-<li>YYYY 四位数年</li>
-<li>MM 两位数月</li>
-<li>DD 两位数日</li>
-<li>hh 两位数小时</li>
-<li>mm 两位数分钟</li>
-</ul>
-
-
-<h2>修改文件的“修改时间”</h2>
-
-<hr />
-
-<p>打开 Terminal，首先输入以下内容，不要回车：</p>
-
-<pre><code>touch -mt YYYYMMDDhhmm
-</code></pre>
-
-<p>其中 YYYYMMDDhhmm 要替换成期望的时间，比如 201112310101。
-打开 Finder，进入需修改的文件所在的文件夹，把改文件拖到 Terminal 窗口，这时文件的路径自动加到了刚才输入的内容的后面，例如</p>
-
-<pre><code>touch -mt 201112310101 /Volumes/MacHD/Pictures/somefile.jpg
-</code></pre>
-
-<p>当然你可以自己手动输入文件路径。回车即完成修改。</p>
-
-<h2>修改文件的“创建时间”</h2>
-
-<hr />
-
-<p>步骤和上面修改“修改时间”基本相同，只是把参数 -mt 改成 -t，例如</p>
-
-<pre><code>touch -t 201112310101 /Volumes/MacHD/Pictures/somefile.jpg
-</code></pre>
-
-<p>还有批量修改文件日期的方法可以<a href="http://danilo.ariadoss.com/howto-change-date-modified-date-created-mac/">参考文章链接</a>。</p>
 ]]></content:encoded>
     </item>
     
