@@ -86,7 +86,7 @@
 
 <span class="x">  </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">post</span> <span class="k">in</span> <span class="nv">site.posts</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">  &lt;url&gt;</span>
-<span class="x">    &lt;loc&gt;</span><span class="cp">{{</span> <span class="nv">site.baseurl</span> <span class="cp">}}{{</span> <span class="nv">post.url</span> <span class="cp">}}</span><span class="x">&lt;/loc&gt;</span>
+<span class="x">    &lt;loc&gt;</span><span class="cp">{{</span> <span class="nv">site.url</span> <span class="cp">}}{{</span> <span class="nv">post.url</span> <span class="cp">}}</span><span class="x">&lt;/loc&gt;</span>
 <span class="x">    </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">post.lastmod</span> <span class="o">==</span> <span class="nv">null</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">    &lt;lastmod&gt;</span><span class="cp">{{</span> <span class="nv">post.date</span> <span class="o">|</span> <span class="nf">date_to_xmlschema</span> <span class="cp">}}</span><span class="x">&lt;/lastmod&gt;</span>
 <span class="x">    </span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"></span>
@@ -99,7 +99,7 @@
 <span class="x">  </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">page</span> <span class="k">in</span> <span class="nv">site.pages</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">  </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">page.sitemap</span> <span class="p">!</span><span class="o">=</span> <span class="nv">null</span> <span class="k">and</span> <span class="nv">page.sitemap</span> <span class="p">!</span><span class="o">=</span> <span class="nv">empty</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">  &lt;url&gt;</span>
-<span class="x">    &lt;loc&gt;</span><span class="cp">{{</span> <span class="nv">site.baseurl</span> <span class="cp">}}{{</span> <span class="nv">page.url</span> <span class="cp">}}</span><span class="x">&lt;/loc&gt;</span>
+<span class="x">    &lt;loc&gt;</span><span class="cp">{{</span> <span class="nv">site.url</span> <span class="cp">}}{{</span> <span class="nv">page.url</span> <span class="cp">}}</span><span class="x">&lt;/loc&gt;</span>
 <span class="x">    &lt;lastmod&gt;</span><span class="cp">{{</span> <span class="nv">page.sitemap.lastmod</span> <span class="o">|</span> <span class="nf">date_to_xmlschema</span> <span class="cp">}}</span><span class="x">&lt;/lastmod&gt;</span>
 <span class="x">    &lt;changefreq&gt;</span><span class="cp">{{</span> <span class="nv">page.sitemap.changefreq</span> <span class="cp">}}</span><span class="x">&lt;/changefreq&gt;</span>
 <span class="x">    &lt;priority&gt;</span><span class="cp">{{</span> <span class="nv">page.sitemap.priority</span> <span class="cp">}}</span><span class="x">&lt;/priority&gt;</span>
